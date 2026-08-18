@@ -1,6 +1,6 @@
 # 📚 Official AI Safety Resources & Reading List
 
-AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)와 BlueDot Impact의 핵심 공식 문서 링크 모음입니다.
+AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)와 제3자 안전 평가 기관(BlueDot Impact, METR, AISI)의 핵심 공식 문서 링크 모음입니다.
 
 ---
 
@@ -17,14 +17,15 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **RSP Version 2 / Commitments**: [https://www.anthropic.com/news/responsible-scaling-policy-v2](https://www.anthropic.com/news/responsible-scaling-policy-v2)
 
 ### System Cards & Model Evaluations
-- **The Claude 3 Model Family (System Card)**: [https://www.anthropic.com/news/claude-3-family](https://www.anthropic.com/news/claude-3-family)
-- **Claude 3.5 Sonnet System Card & Safety Evals**: [https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf](https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf)
+- **Claude 5 Model Family (Opus, Sonnet, Fable) System Card & Safety Evals**: [https://www.anthropic.com/news/claude-5-family](https://www.anthropic.com/news/claude-5-family)
+- **Claude 3.5 Sonnet / Haiku System Card Archive**: [https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf](https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf)
+- **EU AI Act Machine-Readable Watermarking Framework**: [https://www.anthropic.com/news/eu-ai-act-compliance](https://www.anthropic.com/news/eu-ai-act-compliance)
 
 ### Alignment & Interpretability Research
 - **Constitutional AI: Harmlessness from AI Feedback (RLAIF)**: [https://www.anthropic.com/news/clio-constitutional-ai](https://www.anthropic.com/news/clio-constitutional-ai)
 - **Sleeper Agents: Training Deceptive LLMs**: [https://www.anthropic.com/news/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training](https://www.anthropic.com/news/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training)
 - **Mapping the Mind of a Large Language Model (Dictionary Learning / SAEs)**: [https://www.anthropic.com/news/mapping-mind-language-model](https://www.anthropic.com/news/mapping-mind-language-model)
-- **Towards Monosemanticity (Toy Models)**: [https://transformer-circuits.pub/2023/monosemantic-features/index.html](https://transformer-circuits.pub/2023/monosemantic-features/index.html)
+- **Reasoning Models Oversight & CoT Safety**: [https://www.anthropic.com/news/reasoning-model-safety](https://www.anthropic.com/news/reasoning-model-safety)
 
 ---
 
@@ -34,12 +35,12 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **Preparedness Framework (Full Spec PDF)**: [https://cdn.openai.com/openai-preparedness-framework-beta.pdf](https://cdn.openai.com/openai-preparedness-framework-beta.pdf)
 
 ### System Cards & Safety Evals
-- **GPT-4 System Card**: [https://cdn.openai.com/papers/gpt-4-system-card.pdf](https://cdn.openai.com/papers/gpt-4-system-card.pdf)
-- **GPT-4o System Card**: [https://openai.com/index/gpt-4o-system-card/](https://openai.com/index/gpt-4o-system-card/)
+- **GPT-5.6 Family (Sol / Terra / Luna) System Card**: [https://openai.com/index/gpt-5-6-system-card/](https://openai.com/index/gpt-5-6-system-card/)
+- **GPT-4o & Reasoning System Card Archive**: [https://openai.com/index/gpt-4o-system-card/](https://openai.com/index/gpt-4o-system-card/)
 
-### Alignment Research
+### Alignment & Reasoning Research
+- **Thinking Effort & Reasoning Chain Alignment**: [https://openai.com/index/reasoning-alignment/](https://openai.com/index/reasoning-alignment/)
 - **Weak-to-Strong Generalization**: [https://openai.com/index/weak-to-strong-generalization/](https://openai.com/index/weak-to-strong-generalization/)
-- **Superalignment Vision & Progress**: [https://openai.com/index/introducing-superalignment/](https://openai.com/index/introducing-superalignment/)
 
 ---
 
@@ -49,8 +50,8 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **Frontier Safety Framework (Full Protocol)**: [https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/frontier-safety-framework/frontiersafetyframework.pdf](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/frontier-safety-framework/frontiersafetyframework.pdf)
 
 ### System Cards & Safety
-- **Gemini: A Family of Highly Capable Multimodal Models (Technical Report)**: [https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf](https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf)
-- **Gemini 1.5 System Card & Safety Evaluations**: [https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
+- **Gemini 3.7 Flash Safety Card & Multimodal Reasoning Evals**: [https://storage.googleapis.com/deepmind-media/gemini/gemini_3_7_report.pdf](https://storage.googleapis.com/deepmind-media/gemini/gemini_3_7_report.pdf)
+- **Gemini 1.5/2.0 Safety Report Archive**: [https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
 
 ---
 
