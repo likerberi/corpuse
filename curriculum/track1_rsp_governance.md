@@ -53,5 +53,9 @@ flowchart TD
 
 ---
 
-## 🔗 관련 주차 리뷰
+## 🔗 관련 주차 리뷰 및 리소스
 - [Week 02 — Anthropic RSP & ASL 프레임워크 심층 분석](../reviews/week-02/review_week02.md)
+- [Week 03 — OpenAI Preparedness Framework & 위험 임계치 심층 분석](../reviews/week-03/review_week03.md)
+- [Week 04 — Google DeepMind Frontier Safety Framework & EU AI Act 컴플라이언스 심층 분석](../reviews/week-04/review_week04.md)
+- [한국형 소버린 AI를 위한 경량 RSP & 비상 거버넌스 블루프린트](../resources/lightweight_rsp_blueprint.md)
+

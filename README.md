@@ -72,7 +72,7 @@ flowchart TD
 | Week 01 | AI Safety 기본 분류 & 위험 지형도 | 2026-08-18 | ✅ 완료 | [review_week01.md](reviews/week-01/review_week01.md) |
 | Week 02 | Anthropic RSP & ASL 프레임워크 | 2026-08-25 | ✅ 완료 | [review_week02.md](reviews/week-02/review_week02.md) |
 | Week 03 | OpenAI Preparedness Framework & 위험 임계치 | 2026-09-01 | ✅ 완료 | [review_week03.md](reviews/week-03/review_week03.md) |
-| Week 04 | DeepMind Frontier Safety Framework & EU AI Act | 2026-09-08 | ⬜ 예정 | — |
+| Week 04 | DeepMind Frontier Safety Framework & EU AI Act | 2026-09-08 | ✅ 완료 | [review_week04.md](reviews/week-04/review_week04.md) |
 | Week 05~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
 
 ---
@@ -110,9 +110,12 @@ corpuse/
 │   ├── week-02/                       # 2주차: Anthropic RSP & ASL (완료)
 │   │   ├── README.md
 │   │   └── review_week02.md
-│   └── week-03/                       # 3주차: OpenAI Preparedness Framework (완료)
+│   ├── week-03/                       # 3주차: OpenAI Preparedness Framework (완료)
+│   │   ├── README.md
+│   │   └── review_week03.md
+│   └── week-04/                       # 4주차: DeepMind FSF & EU AI Act (완료)
 │       ├── README.md
-│       └── review_week03.md
+│       └── review_week04.md
 └── resources/
     ├── reading_list.md                # 앤트로픽/오픈AI/딥마인드/블루닷 공식 링크 모음
     └── lightweight_rsp_blueprint.md   # 한국형 소버린 AI를 위한 경량 RSP & 비상 거버넌스 블루프린트
