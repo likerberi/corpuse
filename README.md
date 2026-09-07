@@ -72,8 +72,10 @@ flowchart TD
 | Week 01 | AI Safety 기본 분류 & 위험 지형도 | 2026-08-18 | ✅ 완료 | [review_week01.md](reviews/week-01/review_week01.md) |
 | Week 02 | Anthropic RSP & ASL 프레임워크 | 2026-08-25 | ✅ 완료 | [review_week02.md](reviews/week-02/review_week02.md) |
 | Week 03 | OpenAI Preparedness Framework & 위험 임계치 | 2026-09-01 | ✅ 완료 | [review_week03.md](reviews/week-03/review_week03.md) |
-| Week 04 | DeepMind Frontier Safety Framework & EU AI Act | 2026-09-08 | ✅ 완료 | [review_week04.md](reviews/week-04/review_week04.md) |
-| Week 05~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
+| Week 04 | DeepMind Frontier Safety Framework & EU AI Act | 2026-08-31 | ✅ 완료 | [review_week04.md](reviews/week-04/review_week04.md) |
+| Week 05 | Claude Opus 5 System Card & Fable 5 회수–재배포 사례 | 2026-09-07 | ✅ 완료 | [review_week05.md](reviews/week-05/review_week05.md) |
+| Week 06 | OpenAI GPT-5.6 (Sol/Terra/Luna) System Card & 추론 제어 안전 | 2026-09-14 | ⬜ 예정 | — |
+| Week 07~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
 
 ---
 
@@ -89,6 +91,8 @@ flowchart TD
    - *한국어/국내 특수성*: 번역/문화적 뉘앙스, 개인정보/보안 규제, 데이터셋 이슈
    - *실전 액션 플랜*: 자체 파운데이션 모델 개발팀이 당장 도입할 수 있는 3가지
 5. **토론 및 질문 (Discussion & Open Questions)**
+
+> 📌 **사료 검증 규칙 (2026-09-07 도입)**: 리뷰에 인용하는 모든 URL은 커밋 전 HTTP 상태 확인을 통과해야 합니다. 원문 대조 없이 서술한 항목은 `[원문 대조 필요]` 로 명시합니다. 검증 절차는 [`resources/reading_list.md` §6](resources/reading_list.md) 참조.
 
 ---
 
@@ -113,10 +117,14 @@ corpuse/
 │   ├── week-03/                       # 3주차: OpenAI Preparedness Framework (완료)
 │   │   ├── README.md
 │   │   └── review_week03.md
-│   └── week-04/                       # 4주차: DeepMind FSF & EU AI Act (완료)
+│   ├── week-04/                       # 4주차: DeepMind FSF & EU AI Act (완료)
+│   │   ├── README.md
+│   │   └── review_week04.md
+│   └── week-05/                       # 5주차: Claude Opus 5 System Card & Fable 5 회수–재배포 (완료)
 │       ├── README.md
-│       └── review_week04.md
+│       └── review_week05.md
 └── resources/
-    ├── reading_list.md                # 앤트로픽/오픈AI/딥마인드/블루닷 공식 링크 모음
-    └── lightweight_rsp_blueprint.md   # 한국형 소버린 AI를 위한 경량 RSP & 비상 거버넌스 블루프린트
+    ├── reading_list.md                # 앤트로픽/오픈AI/딥마인드/블루닷 공식 링크 모음 (전수 검증 완료)
+    ├── lightweight_rsp_blueprint.md   # 한국형 소버린 AI를 위한 경량 RSP & 비상 거버넌스 블루프린트
+    └── incident_runbook.md            # 회수–재배포 인시던트 런북 (탐지→채점→차단→핫픽스→재배포→공개보고)
 ```
