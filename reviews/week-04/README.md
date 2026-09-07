@@ -1,7 +1,7 @@
 # [Week 04] Google DeepMind Frontier Safety Framework & EU AI Act 컴플라이언스
 
 - **주제**: Google DeepMind Frontier Safety Framework (FSF), Critical Capability Levels (CCLs), 조기 경보 체계(Early Warning Thresholds) 및 EU AI Act 범용 AI(GPAI) 컴플라이언스 심층 분석
-- **리뷰 일자**: 2026-09-08 (월)
+- **리뷰 일자**: 2026-08-31 (월)
 - **트랙**: Track 1 — RSP & Frontier Governance
 - **난이도**: 🟡 중급
 

@@ -1,12 +1,12 @@
 # [Week 01] AI Safety & Alignment 기본 분류 및 위험 지형도 분석
 
-- **리뷰 일자**: 2026-08-18 (월)
+- **리뷰 일자**: 2026-08-18 (화)
 - **트랙/갈래**: Introductory & Governance Overview
 - **난이도**: 🟢 입문~중급
 - **대상 문서 및 원문 링크**:
-  - [BlueDot Impact - AI Safety Fundamentals (AISF)](https://aisafetyfundamentals.com/)
+  - [BlueDot Impact - AI Safety Fundamentals (AISF)](https://bluedot.org/)
   - [Dan Hendrycks et al. - An Overview of Catastrophic AI Risks (CAIS)](https://arxiv.org/abs/2306.12001)
-  - [Anthropic - Responsible Scaling Policy & Claude 5 Overview](https://www.anthropic.com/news/claude-5-family)
+  - [Anthropic - Responsible Scaling Policy & Claude 5 Overview](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf)
 
 ---
 

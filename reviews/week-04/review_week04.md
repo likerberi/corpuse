@@ -1,14 +1,14 @@
 # [Week 04] Google DeepMind Frontier Safety Framework (FSF) & EU AI Act 컴플라이언스 심층 분석
 
-- **리뷰 일자**: 2026-09-08 (월)
+- **리뷰 일자**: 2026-08-31 (월)
 - **트랙/갈래**: Track 1 — RSP & Frontier Governance (Track 1 종합 마무리)
 - **난이도**: 🟡 중급
 - **대상 문서 및 원문 링크**:
   - [Google DeepMind — Introducing the Frontier Safety Framework](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)
-  - [Google DeepMind — Frontier Safety Framework Specification (PDF)](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/frontier-safety-framework/frontiersafetyframework.pdf)
+  - [Google DeepMind — Frontier Safety Framework Specification (PDF)](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/)
   - [European Commission — EU AI Act (Regulation EU 2024/1689) GPAI Systemic Risk Obligations](https://artificialintelligenceact.eu/)
   - [Google DeepMind — SynthID: Robust watermarking for AI-generated content](https://deepmind.google/technologies/synthid/)
-  - 비교 자료: [Anthropic RSP v2](https://www.anthropic.com/news/responsible-scaling-policy-v2), [OpenAI Preparedness Framework](https://openai.com/safety/preparedness/)
+  - 비교 자료: [Anthropic RSP v2](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy), [OpenAI Preparedness Framework](https://openai.com/safety/preparedness/)
 
 ---
 
@@ -188,7 +188,7 @@ flowchart LR
 ## 6. 참고 문헌 및 추가 리소스
 
 1. **Google DeepMind Frontier Safety Framework 공식 사양**:
-   - [DeepMind FSF Policy Whitepaper (2024-2026)](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/frontier-safety-framework/frontiersafetyframework.pdf)
+   - [DeepMind FSF Policy Whitepaper (2024-2026)](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/)
 2. **EU AI Act Regulation (EU) 2024/1689 공식 전문**:
    - [Official Journal of the European Union — AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 3. **Google DeepMind SynthID 워터마킹 기술 문서**:

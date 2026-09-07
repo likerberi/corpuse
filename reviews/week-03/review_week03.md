@@ -1,13 +1,13 @@
 # [Week 03] OpenAI Preparedness Framework & 위험 임계치(Tracked Risk Categories) 심층 분석
 
-- **리뷰 일자**: 2026-09-01 (월)
+- **리뷰 일자**: 2026-09-01 (화)
 - **트랙/갈래**: Track 1 — RSP & Frontier Governance
 - **난이도**: 🟡 중급
 - **대상 문서 및 원문 링크**:
   - [OpenAI — Preparedness Framework (Beta & Updates)](https://openai.com/safety/preparedness/)
   - [OpenAI — Preparedness Framework Specification PDF](https://cdn.openai.com/openai-preparedness-framework-beta.pdf)
-  - [OpenAI — GPT-5.6 Family System Card & Preparedness Report](https://openai.com/index/gpt-5-6-system-card/) *(보조 자료)*
-  - 비교 자료: [Anthropic Responsible Scaling Policy v2](https://www.anthropic.com/news/responsible-scaling-policy-v2), [DeepMind Frontier Safety Framework](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)
+  - [OpenAI — GPT-5.6 Family System Card & Preparedness Report](https://deploymentsafety.openai.com/gpt-5-6) *(보조 자료)*
+  - 비교 자료: [Anthropic Responsible Scaling Policy v2](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy), [DeepMind Frontier Safety Framework](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)
 
 ---
 
@@ -187,7 +187,7 @@ mindmap
 ## 6. 참고 문헌 및 추가 리소스
 
 - OpenAI. *OpenAI Preparedness Framework (Beta Specification)* (2023–2026) — https://openai.com/safety/preparedness/
-- OpenAI. *GPT-5.6 System Card & Safety Evals* (2026) — https://openai.com/index/gpt-5-6-system-card/
+- OpenAI. *GPT-5.6 System Card & Safety Evals* (2026) — https://deploymentsafety.openai.com/gpt-5-6
 - UK AI Safety Institute. *Inspect AI Framework* — https://inspect.ai-safety-institute.org.uk/
 - 과학기술정보통신부 / 한국지능정보사회진흥원(NIA). *생성형 AI 신뢰성·안전성 검증 체계 가이드* (2025).
 - 관련 리뷰:

@@ -1,12 +1,12 @@
 # [Week 02] Anthropic Responsible Scaling Policy (RSP) & ASL 프레임워크 심층 분석
 
-- **리뷰 일자**: 2026-08-25 (월)
+- **리뷰 일자**: 2026-08-25 (화)
 - **트랙/갈래**: Track 1 — RSP & Frontier Governance
 - **난이도**: 🟡 중급
 - **대상 문서 및 원문 링크**:
   - [Anthropic — Responsible Scaling Policy (원문 공지, v1)](https://www.anthropic.com/news/anthropics-responsible-scaling-policy)
-  - [Anthropic — Responsible Scaling Policy v2 (개정 공지)](https://www.anthropic.com/news/responsible-scaling-policy-v2)
-  - [Anthropic — Claude 5 Family System Card & Safety Addendum](https://www.anthropic.com/news/claude-5-family) *(보조 자료)*
+  - [Anthropic — Responsible Scaling Policy v2 (개정 공지)](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy)
+  - [Anthropic — Claude 5 Family System Card & Safety Addendum](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf) *(보조 자료)*
   - 비교 자료: [OpenAI Preparedness Framework](https://openai.com/safety/preparedness/), [DeepMind Frontier Safety Framework](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)
 
 > ⚠️ **정확성 주의**: 본 리뷰의 §2는 공개 원문(RSP v1/v2)에 근거해 정리했습니다. §3의 2026년 최신 개정분 및 Claude 5 라인업 관련 서술 중 `[원문 대조 필요]` 표기 항목은 리뷰 세션에서 최신 원문 PDF와 직접 대조 확인이 필요합니다.
@@ -196,8 +196,8 @@ flowchart LR
 ## 6. 참고 문헌 및 추가 리소스
 
 - Anthropic. *Anthropic's Responsible Scaling Policy* (v1, 2023) — https://www.anthropic.com/news/anthropics-responsible-scaling-policy
-- Anthropic. *Responsible Scaling Policy (v2 개정)* — https://www.anthropic.com/news/responsible-scaling-policy-v2
-- Anthropic. *Claude 5 Family System Card & Safety Addendum* (2026) — https://www.anthropic.com/news/claude-5-family
+- Anthropic. *Responsible Scaling Policy (v2 개정)* — https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy
+- Anthropic. *Claude 5 Family System Card & Safety Addendum* (2026) — https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf
 - OpenAI. *Preparedness Framework* — https://openai.com/safety/preparedness/
 - Google DeepMind. *Frontier Safety Framework* — https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/
 - UK AISI. *Inspect — Evaluation Framework* — https://inspect.ai-safety-institute.org.uk/
