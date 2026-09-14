@@ -74,7 +74,7 @@ flowchart TD
 | Week 03 | OpenAI Preparedness Framework & 위험 임계치 | 2026-09-01 | ✅ 완료 | [review_week03.md](reviews/week-03/review_week03.md) |
 | Week 04 | DeepMind Frontier Safety Framework & EU AI Act | 2026-08-31 | ✅ 완료 | [review_week04.md](reviews/week-04/review_week04.md) |
 | Week 05 | Claude Opus 5 System Card & Fable 5 회수–재배포 사례 | 2026-09-07 | ✅ 완료 | [review_week05.md](reviews/week-05/review_week05.md) |
-| Week 06 | OpenAI GPT-5.6 (Sol/Terra/Luna) System Card & 추론 제어 안전 | 2026-09-14 | ⬜ 예정 | — |
+| Week 06 | OpenAI GPT-5.6 (Sol/Terra/Luna) System Card & 추론 제어 안전 | 2026-09-14 | ✅ 완료 | [review_week06.md](reviews/week-06/review_week06.md) |
 | Week 07~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
 
 ---
@@ -120,11 +120,15 @@ corpuse/
 │   ├── week-04/                       # 4주차: DeepMind FSF & EU AI Act (완료)
 │   │   ├── README.md
 │   │   └── review_week04.md
-│   └── week-05/                       # 5주차: Claude Opus 5 System Card & Fable 5 회수–재배포 (완료)
+│   ├── week-05/                       # 5주차: Claude Opus 5 System Card & Fable 5 회수–재배포 (완료)
+│   │   ├── README.md
+│   │   └── review_week05.md
+│   └── week-06/                       # 6주차: OpenAI GPT-5.6 System Card & 추론 제어 안전 (완료)
 │       ├── README.md
-│       └── review_week05.md
+│       └── review_week06.md
 └── resources/
     ├── reading_list.md                # 앤트로픽/오픈AI/딥마인드/블루닷 공식 링크 모음 (전수 검증 완료)
     ├── lightweight_rsp_blueprint.md   # 한국형 소버린 AI를 위한 경량 RSP & 비상 거버넌스 블루프린트
-    └── incident_runbook.md            # 회수–재배포 인시던트 런북 (탐지→채점→차단→핫픽스→재배포→공개보고)
+    ├── incident_runbook.md            # 회수–재배포 인시던트 런북 (탐지→채점→차단→핫픽스→재배포→공개보고)
+    └── reasoning_cot_safety_guide.md  # 소버린 AI를 위한 CoT 추론 안전 모니터링 & 가드레일 실전 가이드
 ```
