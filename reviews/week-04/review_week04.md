@@ -10,6 +10,10 @@
   - [Google DeepMind — SynthID: Robust watermarking for AI-generated content](https://deepmind.google/technologies/synthid/)
   - 비교 자료: [Anthropic RSP v2](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy), [OpenAI Preparedness Framework](https://openai.com/safety/preparedness/)
 
+> ⚠️ **정정 고지 (2026-09-21)**: 본 리뷰의 FSF 서술 중 **5개 항목이 원문과 어긋나는 것으로 확인**되었습니다. [FSF v3.1 원문](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf) 대조 결과, ① `Early Warning Thresholds (EWT)`라는 명명된 장치는 존재하지 않으며 실제 용어는 **`alert thresholds`(경보 임계치)** 입니다. ② §2.2의 수식 $C_{EW} = C_{crit} - \Delta_{margin}$ 과 **"연산량 6~10배 이전"** 이라는 정량 기준은 원문에 없습니다(안전 버퍼는 **평가 주기** 기준으로 정의됨). ③ 위험 범주는 CBRN·Cyber·**Harmful Manipulation** + **ML R&D 및 Misalignment** 입니다. ④ 보안 등급은 자체 SL-1~4 체계가 아니라 **RAND 모델 가중치 보안 프레임워크**에 정렬됩니다. ⑤ 거버넌스는 특정 기구명 대신 "appropriate governance function"으로 서술됩니다.
+>
+> 정정 상세와 대체 서술은 **[Week 07 리뷰 §3.3](../week-07/review_week07.md)** 을 참조하십시오. 아래 본문은 기록 보존을 위해 원형을 유지합니다.
+
 ---
 
 ## 1. 핵심 요약 (Executive Summary)

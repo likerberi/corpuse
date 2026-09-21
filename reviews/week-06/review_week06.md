@@ -46,7 +46,7 @@ flowchart TD
     subgraph GPT56_Family["GPT-5.6 Family Lineup"]
         direction TB
         Sol["☀️ GPT-5.6 Sol<br/>• 플래그십 심층 추론 모델<br/>• 최대 128k CoT 토큰 지원<br/>• Pre: Cyber High / CBRN Medium<br/>• 고난도 수학, 코드, 과학 연구"]
-        Terra["🌍 GPT-5.6 Terra<br/>• 엔터프라이즈 범용 작업마<br/>• 최대 32k CoT 토큰 지원<br/>• Pre: 전 영역 Medium 이하<br/>• 도구 체이닝, 멀티모달 분석"]
+        Terra["🌍 GPT-5.6 Terra<br/>• 엔터프라이즈 범용 작업 모델<br/>• 최대 32k CoT 토큰 지원<br/>• Pre: 전 영역 Medium 이하<br/>• 도구 체이닝, 멀티모달 분석"]
         Luna["🌙 GPT-5.6 Luna<br/>• 고속·초경량 추론 모델<br/>• 최대 8k CoT 토큰 (증류형)<br/>• Pre: 전 영역 Low/Medium<br/>• 단순 분류, 실시간 챗, 임베디드"]
     end
 

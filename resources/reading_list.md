@@ -57,15 +57,25 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 
 ## 4. Google DeepMind
 ### Frontier Safety Framework
-- **Frontier Safety Framework (Critical Capability Levels)**: [https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)
-- **Frontier Safety Framework (Full Protocol)**: [https://deepmind.google/blog/strengthening-our-frontier-safety-framework/](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/)
+- **FSF v3.1 전문 (2026-04-17, 현행)**: [PDF](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf) — TCL 신설, CBRN·Cyber·Harmful Manipulation·ML R&D/Misalignment 4개 도메인
+- **Strengthening our Frontier Safety Framework (v3.1 공지)**: [https://deepmind.google/blog/strengthening-our-frontier-safety-framework/](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/)
+- **Updating the Frontier Safety Framework (v3 시점)**: [https://deepmind.google/blog/updating-the-frontier-safety-framework/](https://deepmind.google/blog/updating-the-frontier-safety-framework/)
+- **Introducing the Frontier Safety Framework (v1, 2024-05)**: [https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)
+- **Frontier safety 허브**: [https://deepmind.google/frontier-safety/](https://deepmind.google/frontier-safety/)
 
-### Model Cards & Safety
-- **Gemini 3 Pro Model Card**: [PDF](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf) · [웹](https://deepmind.google/models/model-cards/gemini-3-pro/)
-- **Gemini 3.1 Flash-Lite Model Card**: [PDF](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Flash-Lite-Model-Card.pdf)
+### Frontier Safety Reports (모델별 판정서)
+- **Gemini 3.7 Flash Frontier Safety Framework Report (2026-08, 41p)**: [PDF](https://storage.googleapis.com/deepmind-media/gemini/gemini_3-7_flash_fsf_report.pdf) — 도메인별 T/CCL 판정, 경보 임계치, 인간 행동 실험, 은밀성·상황 인식 평가
+
+### Model Cards
+- **Gemini 3.8 Flash (2026-09, 최신)**: [PDF](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf) · [웹](https://deepmind.google/models/model-cards/gemini-3-8-flash/)
+- **Gemini 3.7 Flash (2026-08)**: [PDF](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-7-Flash-Model-Card.pdf) · [웹](https://deepmind.google/models/model-cards/gemini-3-7-flash/)
+- **Gemini 3.6 Flash**: [PDF](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf) *(3.7의 아키텍처·학습 데이터 원본)*
+- **Gemini 3.1 Pro**: [PDF](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf) · [웹](https://deepmind.google/models/model-cards/gemini-3-1-pro/)
+- **Gemini 3 Pro**: [PDF](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf) · [웹](https://deepmind.google/models/model-cards/gemini-3-pro/)
+- **Gemini 3.1 Flash-Lite**: [PDF](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Flash-Lite-Model-Card.pdf)
 - **Gemini 모델 계열 개요**: [https://deepmind.google/models/gemini/](https://deepmind.google/models/gemini/)
 
-> ⚠️ **커리큘럼 정합성 메모**: 본 저장소 커리큘럼(Week 07)은 *"Gemini 3.7 Flash"* 를 대상으로 적고 있으나, 2026-09 기준 공개 모델 카드는 **Gemini 3 Pro / Gemini 3.1 Flash-Lite** 계열입니다. Week 07 진행 시 실제 최신 모델 카드로 대상 문서를 확정할 것.
+> ✅ **정정 (2026-09-21)**: 이전 판에 *"커리큘럼의 Gemini 3.7 Flash는 실재하지 않는 것으로 보인다"* 는 메모를 달았으나 **사실과 다릅니다.** Gemini 3.7 Flash는 2026년 8월 공개된 실제 모델이며 전용 Frontier Safety Report까지 발행되어 있습니다. 당시 검색 결과만으로 단정한 것이 원인이었습니다 — **부재 증명은 검색 누락과 구별되지 않으므로, 앞으로 "존재하지 않음" 판정은 내리지 않고 "확인 필요"로만 표기합니다.**
 
 ---
 
@@ -74,6 +84,7 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **UK AI Safety Institute (AISI) / Inspect**: [https://inspect.ai-safety-institute.org.uk/](https://inspect.ai-safety-institute.org.uk/)
 - **US AI Safety Institute (NIST)**: [https://www.nist.gov/artificial-intelligence/artificial-intelligence-safety-institute](https://www.nist.gov/artificial-intelligence/artificial-intelligence-safety-institute)
 - **CAIS (Center for AI Safety)**: [https://www.safe.ai/](https://www.safe.ai/)
+- **RAND — Securing AI Model Weights (RRA2849-1)**: [https://www.rand.org/pubs/research_reports/RRA2849-1.html](https://www.rand.org/pubs/research_reports/RRA2849-1.html) — DeepMind FSF의 보안 등급(SL 2+/3/4) 기준 문서
 - **Gray Swan — Indirect Prompt Injection 대규모 공개 대회 (arXiv:2603.15714)**: [https://arxiv.org/abs/2603.15714](https://arxiv.org/abs/2603.15714)
 - **Stronger adaptive attacks bypass LLM jailbreak/prompt-injection defenses (arXiv:2510.09023)**: [https://arxiv.org/abs/2510.09023](https://arxiv.org/abs/2510.09023)
 
@@ -87,6 +98,7 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - `200` / `202` / `3xx` → 정상
 - `404` → **즉시 교체 대상**
 - `403` → `openai.com` 은 자동화 요청을 일괄 차단하므로 403이 곧 사망 링크는 아님. 브라우저 또는 검색으로 실재 여부를 별도 확인할 것
+- **"존재하지 않는다"고 단정하지 말 것** → 검색에 안 잡히는 것과 실재하지 않는 것은 다름. 확인되지 않으면 `[확인 필요]`로 표기 (2026-09-21 Gemini 3.7 Flash 오판정 사례)
 
 ```bash
 grep -rhoE '\]\(https?://[^)]+\)' --include='*.md' . | sed 's/^](//; s/)$//' | sort -u \
