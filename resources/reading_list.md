@@ -80,8 +80,26 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 ---
 
 ## 5. Third-Party Standards & Evaluation Bodies
-- **METR (Model Evaluation & Threat Research)**: [https://metr.org/](https://metr.org/)
-- **UK AI Safety Institute (AISI) / Inspect**: [https://inspect.ai-safety-institute.org.uk/](https://inspect.ai-safety-institute.org.uk/)
+
+### METR (Model Evaluation & Threat Research)
+- **METR 홈**: [https://metr.org/](https://metr.org/)
+- **Frontier Risk Report (Feb–Mar 2026, 2026-05-19)** — 기관 단위·주기적·내부 배포 평가 시범: [https://metr.org/blog/2026-05-19-frontier-risk-report/](https://metr.org/blog/2026-05-19-frontier-risk-report/)
+- **Time Horizon 1.1 (2026-01-29)**: [https://metr.org/blog/2026-1-29-time-horizon-1-1/](https://metr.org/blog/2026-1-29-time-horizon-1-1/)
+- **Clarifying limitations of time horizon (2026-01-22)** — 지표 오독 8가지 교정: [https://metr.org/notes/2026-01-22-time-horizon-limitations/](https://metr.org/notes/2026-01-22-time-horizon-limitations/)
+- **Task-Completion Time Horizons (상시 갱신 대시보드)**: [https://metr.org/time-horizons/](https://metr.org/time-horizons/)
+- **Measuring AI Ability to Complete Long Software Tasks (원 논문, 2025-03)**: [https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)
+
+### UK AI Security Institute (UK AISI)
+- **How fast is autonomous AI cyber capability advancing? (2026-05-13)** — 사이버 타임 호라이즌 배가 주기: [https://www.aisi.gov.uk/blog/how-fast-is-autonomous-ai-cyber-capability-advancing](https://www.aisi.gov.uk/blog/how-fast-is-autonomous-ai-cyber-capability-advancing)
+- **Measuring AI Agents' Progress on Multi-Step Cyber Attack Scenarios (2026-03-16)**: [https://www.aisi.gov.uk/research/measuring-ai-agents-progress-on-multi-step-cyber-attack-scenarios](https://www.aisi.gov.uk/research/measuring-ai-agents-progress-on-multi-step-cyber-attack-scenarios) · [arXiv:2603.11214](https://arxiv.org/abs/2603.11214)
+- **5 key findings from our first Frontier AI Trends Report (2025-12-18)**: [https://www.aisi.gov.uk/blog/5-key-findings-from-our-first-frontier-ai-trends-report](https://www.aisi.gov.uk/blog/5-key-findings-from-our-first-frontier-ai-trends-report)
+- **Inspect (오픈소스 평가 프레임워크, METR TH1.1도 채택)**: [https://inspect.aisi.org.uk/](https://inspect.aisi.org.uk/)
+
+### 국내 평가 기관·체계
+- **인공지능안전연구소 (Korea AISI, 2024-11 출범, ETRI 산하)**: [https://www.aisi.re.kr/](https://www.aisi.re.kr/)
+- **금융보안원 금융 AI 안전성·신뢰성 평가 프레임워크 (2026-08 발표, 2027 본격 적용)**: [보도 (아시아경제)](https://www.asiae.co.kr/en/article/economic-general/2026081214055143616)
+
+### 기타
 - **US AI Safety Institute (NIST)**: [https://www.nist.gov/artificial-intelligence/artificial-intelligence-safety-institute](https://www.nist.gov/artificial-intelligence/artificial-intelligence-safety-institute)
 - **CAIS (Center for AI Safety)**: [https://www.safe.ai/](https://www.safe.ai/)
 - **RAND — Securing AI Model Weights (RRA2849-1)**: [https://www.rand.org/pubs/research_reports/RRA2849-1.html](https://www.rand.org/pubs/research_reports/RRA2849-1.html) — DeepMind FSF의 보안 등급(SL 2+/3/4) 기준 문서

@@ -2,7 +2,7 @@
 
 - **주제**: Google DeepMind Gemini 3.7 Flash의 Frontier Safety Framework 판정서 심층 분석 및 FSF v3.1의 3단 임계치 구조·평가 무결성 문제
 - **리뷰 일자**: 2026-09-21 (월)
-- **트랙**: Track 2 — System Cards & Frontier Evals (Track 2 마무리)
+- **트랙**: Track 2 — System Cards & Frontier Evals
 - **난이도**: 🟡 중급
 
 ---

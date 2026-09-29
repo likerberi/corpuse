@@ -1,7 +1,7 @@
 # [Week 07] Gemini 3.7 Flash Frontier Safety Report & FSF 3.1 — 경보 임계치와 평가 무결성
 
 - **리뷰 일자**: 2026-09-21 (월)
-- **트랙/갈래**: Track 2 — System Cards & Frontier Evals (Track 2 마무리)
+- **트랙/갈래**: Track 2 — System Cards & Frontier Evals
 - **난이도**: 🟡 중급
 - **대상 문서 및 원문 링크**:
   - [Google DeepMind — Gemini 3.7 Flash Frontier Safety Framework Report (2026-08, 41p PDF)](https://storage.googleapis.com/deepmind-media/gemini/gemini_3-7_flash_fsf_report.pdf) — **본 리뷰의 1차 사료**

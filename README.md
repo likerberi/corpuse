@@ -76,8 +76,9 @@ flowchart TD
 | Week 05 | Claude Opus 5 System Card & Fable 5 회수–재배포 사례 | 2026-09-07 | ✅ 완료 | [review_week05.md](reviews/week-05/review_week05.md) |
 | Week 06 | OpenAI GPT-5.6 (Sol/Terra/Luna) System Card & 추론 제어 안전 | 2026-09-14 | ✅ 완료 | [review_week06.md](reviews/week-06/review_week06.md) |
 | Week 07 | Gemini 3.7 Flash Frontier Safety Report & FSF 3.1 | 2026-09-21 | ✅ 완료 | [review_week07.md](reviews/week-07/review_week07.md) |
-| Week 08 | METR / AISI 자율 위험 및 Dangerous Capabilities 평가 | 2026-09-28 | ⬜ 예정 | — |
-| Week 09~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
+| Week 08 | METR Frontier Risk Report & UK AISI 사이버 타임 호라이즌 (Track 2 종합) | 2026-09-28 | ✅ 완료 | [review_week08.md](reviews/week-08/review_week08.md) |
+| Week 09 | RLHF의 한계와 Constitutional AI (RLAIF) 진화 — Track 3 시작 | 2026-10-05 | ⬜ 예정 | — |
+| Week 10~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
 
 ---
 
@@ -128,13 +129,16 @@ corpuse/
 │   ├── week-06/                       # 6주차: OpenAI GPT-5.6 System Card & 추론 제어 안전 (완료)
 │   │   ├── README.md
 │   │   └── review_week06.md
-│   └── week-07/                       # 7주차: Gemini 3.7 Flash FSF Report & FSF 3.1 (완료)
+│   ├── week-07/                       # 7주차: Gemini 3.7 Flash FSF Report & FSF 3.1 (완료)
+│   │   ├── README.md
+│   │   └── review_week07.md
+│   └── week-08/                       # 8주차: METR & UK AISI 제3자 평가, Track 2 종합 (완료)
 │       ├── README.md
-│       └── review_week07.md
+│       └── review_week08.md
 └── resources/
     ├── reading_list.md                # 앤트로픽/오픈AI/딥마인드/블루닷 공식 링크 모음 (전수 검증 완료)
     ├── lightweight_rsp_blueprint.md   # 한국형 소버린 AI를 위한 경량 RSP & 비상 거버넌스 블루프린트
     ├── incident_runbook.md            # 회수–재배포 인시던트 런북 (탐지→채점→차단→핫픽스→재배포→공개보고)
     ├── reasoning_cot_safety_guide.md  # 소버린 AI를 위한 CoT 추론 안전 모니터링 & 가드레일 실전 가이드
-    └── frontier_eval_playbook.md      # 프론티어 위험 평가 설계 플레이북 (3단 임계치 · 평가 깊이 등급 · 평가 무결성)
+    └── frontier_eval_playbook.md      # 프론티어 위험 평가 설계 플레이북 (3단 임계치 · 평가 깊이 등급 · 평가 무결성 · 부정행위 검수 · 제3자 평가 대응)
 ```
