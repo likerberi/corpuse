@@ -48,6 +48,7 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **GPT-4o & Reasoning System Card Archive**: [https://openai.com/index/gpt-4o-system-card/](https://openai.com/index/gpt-4o-system-card/)
 
 ### Alignment & Reasoning Research
+- **Improving model safety behavior with rule-based rewards (RBRMs)**: [https://openai.com/index/improving-model-safety-behavior-with-rule-based-rewards/](https://openai.com/index/improving-model-safety-behavior-with-rule-based-rewards/)
 - **Evaluating chain-of-thought monitorability**: [https://openai.com/index/evaluating-chain-of-thought-monitorability/](https://openai.com/index/evaluating-chain-of-thought-monitorability/)
 - **Detecting misbehavior in frontier reasoning models (CoT monitoring)**: [https://openai.com/index/chain-of-thought-monitoring/](https://openai.com/index/chain-of-thought-monitoring/)
 - **OpenAI Alignment Research Blog**: [https://alignment.openai.com/](https://alignment.openai.com/)
