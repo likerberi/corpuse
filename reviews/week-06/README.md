@@ -5,6 +5,8 @@
 - **트랙**: Track 2 — System Cards & Frontier Evals
 - **난이도**: 🟡 중급
 
+> ⚠️ **정정 고지 (2026-10-12)**: 본 주차 리뷰의 핵심 수치·판정이 GPT-5.6 System Card 원문과 어긋나는 것으로 확인되었습니다. [review_week06.md](review_week06.md) 상단 고지와 [Week 10 리뷰 §3.4](../week-10/review_week10.md)를 먼저 읽어 주십시오.
+
 ---
 
 ## 🎯 학습 목표

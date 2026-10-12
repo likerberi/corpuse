@@ -225,12 +225,14 @@ flowchart TD
 
 | 항목 | Anthropic RSP | OpenAI Preparedness | **DeepMind FSF 3.1** |
 | :--- | :--- | :--- | :--- |
-| **임계치 계층** | ASL 등급 + Capability Threshold | Low/Medium/High/Critical | **TCL → Alert Threshold → CCL (3단)** |
-| **위험 도메인** | CBRN, Cyber, Autonomous AI R&D | CBRN, Cyber, Persuasion, Self-improvement | **CBRN, Cyber, Harmful Manipulation, ML R&D·Misalignment** |
+| **임계치 계층** | ASL 등급 + Capability Threshold | High / Critical 능력 임계치 ¹ | **TCL → Alert Threshold → CCL (3단)** |
+| **위험 도메인** | CBRN, Cyber, Autonomous AI R&D | Biological & Chemical, Cybersecurity, AI Self-Improvement ¹ | **CBRN, Cyber, Harmful Manipulation, ML R&D·Misalignment** |
 | **보안 등급 근거** | 자체 ASL 정의 | 자체 정의 | **RAND 모델 가중치 보안 프레임워크에 정렬** (SL2+/3/4) |
-| **CCL 도달 시 요구** | 필수 보호조치(Required Safeguards) | Post-mitigation Medium 이하 | **Safety Case 제출 + 거버넌스 기구 위험 수용 판정** |
+| **CCL 도달 시 요구** | 필수 보호조치(Required Safeguards) | High 판정 모델별 세이프가드 패키지가 심각한 피해 위험을 충분히 최소화할 것 ¹ | **Safety Case 제출 + 거버넌스 기구 위험 수용 판정** |
 | **조작·설득 평가 방식** | 자동 평가 중심 | 자동 평가 중심 | **인간 무작위 대조 실험 (n=1,596, 외부 학계 윤리 승인)** |
 | **내부 배포 규율** | 내부 사용 모니터링 | — | **고위험 내부 배포도 Safety Case 대상** (ML R&D 도메인) |
+
+> ¹ **2026-10-12 수정**: OpenAI 열의 두 칸은 처음에 구버전 Preparedness Framework 서술(Persuasion 포함, "Post-mitigation Medium 이하")을 따랐으나, [GPT-5.6 System Card](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf) 원문 기준으로 고쳤습니다. 원문의 Tracked Category는 Biological and Chemical · Cybersecurity · AI Self-Improvement 셋이며, GPT-5.6 세 모델은 앞의 둘에서 High, 마지막에서 High 미만으로 판정되었습니다. 경위는 [Week 10 리뷰 §3.4](../week-10/review_week10.md) 참조.
 
 ### 3.3 ⚠️ Week 04 리뷰 정정 (Correction)
 

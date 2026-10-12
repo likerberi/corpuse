@@ -11,7 +11,21 @@
   - [OpenAI — Detecting misbehavior in frontier reasoning models (CoT monitoring)](https://openai.com/index/chain-of-thought-monitoring/)
   - 보조 자료: [UK AI Safety Institute — Inspect Framework](https://inspect.ai-safety-institute.org.uk/), [Anthropic — System Card: Claude Opus 5](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf)
 
-> ✅ **사료 검증 노트**: 본 리뷰의 §2·§3에 등장하는 모든 정량 지표와 평가 체계는 OpenAI가 2026년 7월 9일 발행한 `GPT-5.6 System Card & Preparedness Report` 및 추론 연쇄 모니터링 연구 보고서 원문에서 대조하여 작성되었습니다.
+> ⚠️ **정정 고지 (2026-10-12)** — 아래 "사료 검증 노트"의 주장과 달리, [GPT-5.6 System Card PDF](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf) 원문(82쪽) 대조 결과 **본 리뷰의 핵심 서술 다수가 원문에 없거나 원문과 반대**임이 확인되었습니다.
+>
+> | 본 리뷰의 서술 | 시스템 카드 원문 |
+> | :--- | :--- |
+> | Sol은 Pre-mitigation Cyber High / CBRN Medium, Terra·Luna는 Medium 이하 | **세 모델 모두** *"High in Biological and Chemical, High in Cybersecurity, and below High in AI Self-Improvement"* — 소형 모델이 High 판정을 받은 첫 사례 |
+> | Pre/Post-mitigation 스코어카드, "Post-mitigation Medium 이하 → Deployment Gate 통과" (§2.2) | 해당 스코어카드·표현 없음. High 판정 모델별로 세이프가드 패키지를 맞춤 적용 |
+> | Persuasion · Model Autonomy 범주 평가 (§2.2) | Tracked Category는 Bio/Chem · Cybersecurity · AI Self-Improvement 셋 |
+> | Thinking Effort별 탈옥 방어율 95.8/98.4/99.2%, 과차단율 0.84/0.42/0.38% (§2.3) | 해당 표·수치 없음 |
+> | CoT 토큰 상한 128k/32k/8k (§2.1) | 해당 표기 없음 |
+> | "숙고 정렬", "Legibility Reward", 세션을 중단하는 인라인 CoT Safety Monitor (§2.3~2.4) | 해당 용어 없음. 원문은 CoT 감시가능성·제어가능성·메타게이밍의 **측정**을 보고 (§7.3~7.4) |
+> | Sandia·NCSA 평가, SCADA 전면 차단 분류기, CBRN Unlearning (§2.2, §2.5) | 해당 기관·용어 없음. 외부 평가는 UK AISI, METR, Irregular 등 |
+>
+> 원문 기준의 CoT 관련 내용은 **[Week 10 리뷰 §2.6](../week-10/review_week10.md)**, 정정 경위는 **[§3.4](../week-10/review_week10.md)** 를 참조하십시오. 아래 본문은 기록 보존을 위해 원형을 유지하며, **원문 기준 재작성이 필요합니다.** §4(소버린 AI 시사점)의 설계 제안은 원문 인용이 아닌 자체 제안으로 읽어 주십시오.
+
+> ~~✅ **사료 검증 노트**: 본 리뷰의 §2·§3에 등장하는 모든 정량 지표와 평가 체계는 OpenAI가 2026년 7월 9일 발행한 `GPT-5.6 System Card & Preparedness Report` 및 추론 연쇄 모니터링 연구 보고서 원문에서 대조하여 작성되었습니다.~~ *(위 정정 고지 참조)*
 
 ---
 
