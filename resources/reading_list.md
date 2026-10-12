@@ -107,6 +107,19 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **Gray Swan — Indirect Prompt Injection 대규모 공개 대회 (arXiv:2603.15714)**: [https://arxiv.org/abs/2603.15714](https://arxiv.org/abs/2603.15714)
 - **Stronger adaptive attacks bypass LLM jailbreak/prompt-injection defenses (arXiv:2510.09023)**: [https://arxiv.org/abs/2510.09023](https://arxiv.org/abs/2510.09023)
 
+### 주제별: Scalable Oversight & CoT 감시가능성 (Week 10)
+- **Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety** (Korbak 외 41인, 2025): [arXiv:2507.11473](https://arxiv.org/abs/2507.11473) — 감시가능성의 두 근거(필요성·성향)와 네 가지 붕괴 경로
+- **Monitoring Monitorability** (Guan 외, OpenAI, 2025): [arXiv:2512.18311](https://arxiv.org/abs/2512.18311) · [평가 공개 공지](https://alignment.openai.com/monitorability-evals/) · [코드·데이터](https://github.com/openai/monitorability-evals)
+- **Reasoning Models Struggle to Control their Chains of Thought** (Chen 외, OpenAI, 2026): [arXiv:2603.05706](https://arxiv.org/abs/2603.05706)
+- **Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation** (Baker 외, OpenAI, 2025): [arXiv:2503.11926](https://arxiv.org/abs/2503.11926) — "monitorability tax"
+- **When Chain of Thought is Necessary, Language Models Struggle to Evade Monitors** (Emmons 외, 2025): [arXiv:2507.05246](https://arxiv.org/abs/2507.05246)
+- **Think Fast: Estimating No-CoT Task-Completion Time Horizons** (Gould 외, 2026): [arXiv:2606.07157](https://arxiv.org/abs/2606.07157)
+- **Length Penalties Make Chain-of-Thought Less Monitorable** (Little, 2026): [arXiv:2607.09786](https://arxiv.org/abs/2607.09786)
+- **AI safety via debate** (Irving 외, 2018): [arXiv:1805.00899](https://arxiv.org/abs/1805.00899) · **Debating with More Persuasive LLMs Leads to More Truthful Answers** (Khan 외, 2024): [arXiv:2402.06782](https://arxiv.org/abs/2402.06782)
+- **Weak-to-Strong Generalization** (Burns 외, 2023): [arXiv:2312.09390](https://arxiv.org/abs/2312.09390) · **AI Control: Improving Safety Despite Intentional Subversion** (Greenblatt 외, 2023): [arXiv:2312.06942](https://arxiv.org/abs/2312.06942)
+- **Measuring Progress on Scalable Oversight for Large Language Models** (Bowman 외, 2022): [arXiv:2211.03540](https://arxiv.org/abs/2211.03540)
+- 시스템 카드 내 해당 절: GPT-5.6 §7.3 CoT Evaluations · §7.4 Metagaming · §9.2.2 UK AISI / Claude Opus 5 §6.4.5 · §6.6.1 (링크는 위 §2·§3 참조)
+
 ---
 
 ## 6. 링크 검증 규칙 (Link Hygiene)
@@ -117,6 +130,7 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - `200` / `202` / `3xx` → 정상
 - `404` → **즉시 교체 대상**
 - `403` → `openai.com` 은 자동화 요청을 일괄 차단하므로 403이 곧 사망 링크는 아님. 브라우저 또는 검색으로 실재 여부를 별도 확인할 것
+- **링크가 살아 있다고 내용이 맞는 것은 아님** → 시스템 카드·보고서를 인용할 때는 PDF를 내려받아 **인용한 수치·용어가 본문에 실제로 있는지 검색**할 것. 2026-10-12 Week 06 대조에서, 링크는 정상이지만 리뷰가 인용한 수치와 용어 다수가 원문에 없음이 확인됨
 - **"존재하지 않는다"고 단정하지 말 것** → 검색에 안 잡히는 것과 실재하지 않는 것은 다름. 확인되지 않으면 `[확인 필요]`로 표기 (2026-09-21 Gemini 3.7 Flash 오판정 사례)
 
 ```bash
