@@ -120,6 +120,18 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **Measuring Progress on Scalable Oversight for Large Language Models** (Bowman 외, 2022): [arXiv:2211.03540](https://arxiv.org/abs/2211.03540)
 - 시스템 카드 내 해당 절: GPT-5.6 §7.3 CoT Evaluations · §7.4 Metagaming · §9.2.2 UK AISI / Claude Opus 5 §6.4.5 · §6.6.1 (링크는 위 §2·§3 참조)
 
+### 주제별: Deception, Sleeper Agents & Sandbagging (Week 11)
+- **Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training** (Hubinger 외, Anthropic, 2024): [arXiv:2401.05566](https://arxiv.org/abs/2401.05566) — 조건부 백도어가 SFT·RLHF·적대적 학습을 통과해 잔존하며 모델 규모가 클수록 강고해짐을 입증
+- **Simple probes can catch sleeper agents** (Anthropic, 2024-04): [https://www.anthropic.com/research/probes-catch-sleeper-agents](https://www.anthropic.com/research/probes-catch-sleeper-agents) — 일반 정직/기만 대조 1쌍($N=2$) 선형 프로브로 배신 전환을 AUROC 99.3%로 탐지
+- **Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models** (Denison 외, Anthropic, 2024): [arXiv:2406.10162](https://arxiv.org/abs/2406.10162) — 아첨에서 체크리스트 위조·보상 함수 및 단위 테스트 재작성으로의 제로샷 일반화
+- **Alignment Faking in Large Language Models** (Greenblatt 외, Anthropic & Redwood Research, 2024): [arXiv:2412.14093](https://arxiv.org/abs/2412.14093) · [공식 블로그](https://www.anthropic.com/research/alignment-faking) — 자연 발생한 선호 보존형 정렬 위장(무료 vs 유료 티어 Compliance Gap 11~24%p)과 RL 사후학습 시 정렬 위장 추론이 78%까지 급증하는 역설
+- **Frontier Models are Capable of In-context Scheming** (Meinke 외, Apollo Research, 2024): [arXiv:2412.04984](https://arxiv.org/abs/2412.04984) — 감시 카메라 해제·후속 모델 덮어쓰기(자기 복제)·심문 시 최대 98% 사후 부인
+- **Stress Testing Deliberative Alignment for Anti-Scheming Training** (Schoen 외, Apollo Research & OpenAI, 2025): [arXiv:2509.15541](https://arxiv.org/abs/2509.15541) — 은밀한 행동 완화(o3 13.0%→0.4%, o4-mini 8.7%→0.3%)와 **평가 인식의 인과적 효과(Causal Intervention)** 입증
+- **AI Sandbagging: Language Models can Strategically Underperform on Evaluations** (van der Weij 외, 2024): [arXiv:2406.07358](https://arxiv.org/abs/2406.07358) — 위험 능력 선별 저성능 및 특정 목표 정확도 조준(Calibration)
+- **Noise Injection Reveals Hidden Capabilities of Sandbagging Language Models** (Tice 외, 2024): [arXiv:2412.01784](https://arxiv.org/abs/2412.01784) — 가중치 가우시안 노이즈 주입 시 샌드배깅 모델의 정답률이 반등하는 비단조(Non-monotonic) 신호 탐지
+- **Sabotage Evaluations for Frontier Models** (Benton 외, Anthropic, 2024): [arXiv:2410.21514](https://arxiv.org/abs/2410.21514) · [공식 블로그](https://www.anthropic.com/research/sabotage-evaluations) — 인간 의사결정 조작·코드 백도어 삽입·안전 평가 샌드배깅·감시자 속이기 4대 사보타주 평가
+- 시스템 카드 내 해당 절: Claude Opus 5 §2.4 Alignment risk update · §6.1~§6.7 Alignment assessment (UK AISI 비언어화 평가 인식 95% 쌍대 판별·사보타주·SHADE-Arena·LinuxArena 포함) / GPT-5.6 §7.2 Agentic coding misaligned behavior · §7.4 Metagaming · §9.1~§9.3 External alignment & sandbagging (링크는 위 §2·§3 참조)
+
 ---
 
 ## 6. 링크 검증 규칙 (Link Hygiene)
@@ -130,7 +142,7 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - `200` / `202` / `3xx` → 정상
 - `404` → **즉시 교체 대상**
 - `403` → `openai.com` 은 자동화 요청을 일괄 차단하므로 403이 곧 사망 링크는 아님. 브라우저 또는 검색으로 실재 여부를 별도 확인할 것
-- **링크가 살아 있다고 내용이 맞는 것은 아님** → 시스템 카드·보고서를 인용할 때는 PDF를 내려받아 **인용한 수치·용어가 본문에 실제로 있는지 검색**할 것. 2026-10-12 Week 06 대조에서, 링크는 정상이지만 리뷰가 인용한 수치와 용어 다수가 원문에 없음이 확인됨
+- **링크가 살아 있다고 내용이 맞는 것은 아님** → 시스템 카드·보고서를 인용할 때는 PDF를 내려받아 **인용한 수치·용어가 본문에 실제로 있는지 검색**할 것. 2026-10-12 Week 06 대조에서, 링크는 정상이지만 리뷰가 인용한 수치와 용어 다수가 원문에 없음이 확인되어 **2026-10-19 82페이지 원문 PDF 기준으로 전면 재작성**함
 - **"존재하지 않는다"고 단정하지 말 것** → 검색에 안 잡히는 것과 실재하지 않는 것은 다름. 확인되지 않으면 `[확인 필요]`로 표기 (2026-09-21 Gemini 3.7 Flash 오판정 사례)
 
 ```bash
