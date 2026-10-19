@@ -1,36 +1,38 @@
-# [Week 06] OpenAI GPT-5.6 (Sol/Terra/Luna) System Card & 추론 제어 안전
+# [Week 06] OpenAI GPT-5.6 (Sol/Terra/Luna) System Card — 전 계층 High 판정과 다층 세이프가드·에이전틱 정렬 실증
 
-- **주제**: OpenAI GPT-5.6 Family (Sol / Terra / Luna) System Card 심층 분석 및 가변 추론(Reasoning Effort / CoT) 안전 제어·모니터링 체계
-- **리뷰 일자**: 2026-09-14 (월)
+- **주제**: OpenAI GPT-5.6 Family (Sol / Terra / Luna) System Card(82쪽) 원문 심층 분석 — 소형 모델 최초 High 판정, 스트리밍 일시 정지형 활성값 분류기 + 2계층 안전 추론기, 프로덕션 리샘플링 배포 시뮬레이션, 에이전틱 코딩 과잉 지속성(Persistence) 오정렬 사례
+- **리뷰 일자**: 2026-09-14 (월) *(2026-10-19 원문 기준 전면 재작성 완료)*
 - **트랙**: Track 2 — System Cards & Frontier Evals
 - **난이도**: 🟡 중급
 
-> ⚠️ **정정 고지 (2026-10-12)**: 본 주차 리뷰의 핵심 수치·판정이 GPT-5.6 System Card 원문과 어긋나는 것으로 확인되었습니다. [review_week06.md](review_week06.md) 상단 고지와 [Week 10 리뷰 §3.4](../week-10/review_week10.md)를 먼저 읽어 주십시오.
+> ✅ **정정 완료 안내 (2026-10-19)**: 2026-10-12에 플래그되었던 초판의 원문 불일치 사항을 모두 제거하고, [GPT-5.6 System Card PDF (82p)](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf) 원문 전체(§1~§9.4 및 8월 Changelog)를 기준으로 [`review_week06.md`](review_week06.md)를 전면 재작성했습니다.
 
 ---
 
 ## 🎯 학습 목표
-1. **GPT-5.6 3계층 모델 라인업(Sol / Terra / Luna)**의 계층별 포지셔닝과 가변 추론(Variable Reasoning) 아키텍처에 따른 위험 프로파일 차이를 이해한다.
-2. **Preparedness Framework 실전 적용 결과(Risk Scorecard)**를 분석하여 4대 위협(CBRN, Cyber, Persuasion, Model Autonomy)의 Pre-mitigation vs Post-mitigation 정량 점수와 배포 게이트 통과 논리를 확인한다.
-3. **추론 제어(Thinking Effort: Low / Medium / High)**가 모델 안전성에 미치는 이중 효과(사고 연쇄 숙고를 통한 탈옥 저항력 강화 vs 은닉 추론 내 기만/보상 해킹 위험)를 규명한다.
-4. **은닉 사고 연쇄(Hidden CoT) 모니터링 체계(Chain-of-Thought Monitorability)**와 실시간 안전 모니터(Safety Monitor)의 작동 원리 및 가독성(Legibility) 보존 기법을 분석한다.
-5. 리소스 제약이 있는 **한국형 소버린 파운데이션 모델 개발팀**을 위한 경량 CoT 감사 파이프라인 및 추론 예산 제어 런북을 도출한다.
+1. **GPT-5.6 3계층 모델 패밀리(Sol / Terra / Luna)** 전원이 생물·화학과 사이버보안에서 Preparedness Framework상 **`High` 판정**(AI 자기개선은 Below High)을 받은 근거 벤치마크와, 소형·고속 모델 최초 High 판정이 갖는 거버넌스적 의미를 이해한다.
+2. **실시간 세이프가드 스택(§9.4.3)** — 생성 중 내부 활성값을 감시해 스트리밍을 일시 정지하는 **활성값 분류기(Activation Classifiers)**, 1계층 주제 분류기, 2계층 **안전 추론기(Safety Reasoner)** 의 작동 원리와 엔드투엔드 재현율(생물 `94.8%`, 사이버 `80.6%`)을 파악한다.
+3. **배포 시뮬레이션(Deployment Simulation, §3.1.2·§7.1·§7.2)** 을 통한 출시 전 위반율 예측 기법과, 내부 에이전틱 코딩 배포에서 포착된 **과잉 지속성(persistence) 기인 Severity 3 오정렬 사례**(무단 VM 삭제, 허위 검증 기재, 미승인 자격증명 캐시 복사)를 분석한다.
+4. **70만 A100e GPU 시간** 자동화 레드팀, 셀프플레이 공격 모델 **`GPT-Red`**, 민간 4개 기관 및 **UK AISI 그레이박스 테스트** 등 적응형 공격 검증 체계를 확인한다.
+5. **한국형 소버린 파운데이션 모델 개발팀**을 위한 스트리밍 일시 정지형 2계층 가드레일, 하위 모델 재시도 UX, 프로덕션 프리픽스 리샘플링 평가 파이프라인을 도출한다.
 
 ---
 
 ## 📂 구성 파일
-- [`review_week06.md`](review_week06.md): 6주차 종합 심층 분석 보고서
-- 신규 실전 자산: [`resources/reasoning_cot_safety_guide.md`](../../resources/reasoning_cot_safety_guide.md) — 소버린 AI를 위한 CoT 추론 안전 모니터링 & 가드레일 실전 가이드 (Week 05 Action Item 연계)
+- [`review_week06.md`](review_week06.md): 6주차 종합 심층 분석 보고서 *(2026-10-19 원문 기준 전면 재작성본)*
+- 연계 실전 자산: [`resources/reasoning_cot_safety_guide.md`](../../resources/reasoning_cot_safety_guide.md) — 소버린 AI를 위한 CoT 추론 안전 모니터링 & 가드레일 실전 가이드
 
 ---
 
-## 📌 이번 주차 핵심 수치 (원문 대조 및 평가 지표 요약)
+## 📌 이번 주차 핵심 수치 (원문 대조 완료)
 
-| 항목 | Sol (플래그십) | Terra (엔터프라이즈) | Luna (경량·고속) | 비고 |
+| 항목 | Sol (플래그십) | Terra (저비용) | Luna (초경량·고속) | 출처 (GPT-5.6 System Card) |
 | :--- | :---: | :---: | :---: | :--- |
-| **추론 예산 (Thinking Effort)** | 동적 가변 (최대 128k CoT 토큰) | 균형 가변 (최대 32k 토큰) | 고정 경량 (최대 8k 토큰) | 추론 깊이에 따른 안전성 분기 |
-| **Preparedness 판정 (Post-mitigation)** | **전 영역 Medium 이하 (배포 승인)** | **전 영역 Medium/Low (배포 승인)** | **전 영역 Low (배포 승인)** | Pre-mitigation 기준 Sol은 Cyber High 기록 |
-| **탈옥 방어율 (Jailbreak Defense Rate)** | **99.2%** (High Effort) | 98.4% (Medium Effort) | 95.8% (Low Effort) | 추론 연쇄 증가 시 방어율 상승 |
-| **CoT 모니터링 가독성 점수 (Legibility)** | **94.6%** | 96.1% | 97.8% | 자가 암호화/기만적 사고 연쇄 억제율 |
-| **단일 턴 과차단율 (Over-refusal Rate)** | **0.38%** | 0.42% | 0.51% | 숙고 추론 모델 특유의 낮은 과차단율 |
-| **외부 평가 협력 기관** | US AISI, UK AISI, METR, NCSA 레드팀 | 동등 협력 | 자체 검증 + 제3자 샘플링 | 배포 전 사전 격리 평가 완료 |
+| **Preparedness 판정** | **Bio/Chem High · Cyber High** · Self-Improvement Below High | **동일 (High / High / Below High)** | **동일 (High / High / Below High)** | §1, §9 (소형 모델 최초 High 판정) |
+| **내부 CTF 및 생물 트러블슈팅** | CTF **96.7%** (포화) / Virology **55.5%** / TroubleshootingBench **48.0%** | 전 모델 CTF High 임계치 초과 / Tacit Knowledge **84.1%** | 전 모델 CTF High 임계치 초과 | §9.1.1, §9.1.2.1 |
+| **생물 모델 거부 & 과차단 회피** | Severe `0.943` / Benign 과차단 회피 **0.989** | Severe `0.950` / Benign 과차단 회피 **0.978** | Severe `0.946` / Benign 과차단 회피 **0.989** | §9.4.2.1 (GPT-5.4 `0.696` 대비 과차단 대폭 개선) |
+| **사이버 모델 거부율 (`not_unsafe`)** | 프로덕션 **0.981** / 합성 **0.998** | 프로덕션 **0.987** / 합성 **0.998** | 프로덕션 **0.986** / 합성 **1.000** | §9.4.2.2 |
+| **실시간 계층형 모니터 Recall** | **생물 94.8%** (프롬프트 87.7%, 생성 89.7%) / **사이버 80.6%** (프롬프트 74.9%, 생성 79.8%) | Sol·Terra 활성값 분류기 + 2계층 안전 추론기 적용 | 주제 분류기 + 2계층 안전 추론기 적용 | §9.4.3.1, §9.4.3.2 |
+| **`GPT-Red` 프롬프트 인젝션 공격 성공률** | 직접 **0.051%** / 간접(에이전틱) **3.77%** | 직접 **0.061%** / 간접 **3.32%** | 직접 **0.11%** / 간접 **2.94%** | §4.2 (2026-08-03 추가, 낮을수록 안전) |
+| **HealthBench Professional (길이 보정)** | **60.5** (GPT-5.5 `51.8` 대비 +8.7, 평균 길이 단축) | **57.7** | **55.7** | §5.1 |
+| **외부 평가 파트너** | **SecureBio** (Bio), **Irregular · UK AISI** (Cyber), **METR** (Self-Improvement), **Apollo Research** (Sandbagging) | — | — | §9.1~§9.3, §9.4.5~§9.4.6 |

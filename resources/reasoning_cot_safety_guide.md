@@ -4,7 +4,7 @@
 > **근거**: [Week 06 리뷰](../reviews/week-06/review_week06.md) — OpenAI GPT-5.6 (Sol/Terra/Luna) System Card & CoT Monitorability 연구  
 > **선행 문서**: [경량 RSP & 비상 거버넌스 블루프린트](lightweight_rsp_blueprint.md) · [회수–재배포 인시던트 런북](incident_runbook.md)
 
-> ⚠️ **읽기 전 유의 (2026-10-12)**: §0~§5는 Week 06 리뷰를 근거로 작성되었는데, Week 06의 일부 서술(OpenAI가 "Legibility Reward"와 인라인 CoT Safety Monitor를 운용한다는 내용 등)이 **GPT-5.6 System Card 원문에서 확인되지 않았습니다**([Week 10 리뷰 §3.4](../reviews/week-10/review_week10.md)). §0~§5의 아키텍처는 **"OpenAI가 이렇게 한다"가 아니라 이 저장소가 제안하는 설계안**으로 읽어야 하며, 그 설계안이 감시가능성에 미치는 영향은 **§6**에서 보완합니다.
+> ⚠️ **읽기 전 유의 (2026-10-12, 2026-10-19 갱신)**: §0~§5는 초기 Week 06 리뷰를 근거로 작성되었는데, 당시 일부 서술(OpenAI가 "Legibility Reward"와 인라인 CoT Safety Monitor를 운용한다는 내용 등)이 **GPT-5.6 System Card 원문에서 확인되지 않아 2026-10-19 [Week 06 리뷰](../reviews/week-06/review_week06.md)를 원문(활성 분류기 + 2계층 토픽 분류기·안전 추론기 아키텍처) 기준으로 전면 재작성**했습니다([Week 10 리뷰 §3.4](../reviews/week-10/review_week10.md)). 본 문서 §0~§5의 아키텍처는 **"OpenAI가 이렇게 한다"가 아니라 이 저장소가 제안하는 설계안**으로 읽어야 하며, 그 설계안이 감시가능성에 미치는 영향은 **§6**에서 보완합니다.
 
 ---
 
