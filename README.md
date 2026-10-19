@@ -72,7 +72,7 @@ flowchart TD
 | Week 01 | AI Safety 기본 분류 & 위험 지형도 | 2026-08-18 | ✅ 완료 | [review_week01.md](reviews/week-01/review_week01.md) |
 | Week 02 | Anthropic RSP & ASL 프레임워크 | 2026-08-25 | ✅ 완료 | [review_week02.md](reviews/week-02/review_week02.md) |
 | Week 03 | OpenAI Preparedness Framework & 위험 임계치 | 2026-09-01 | ✅ 완료 | [review_week03.md](reviews/week-03/review_week03.md) |
-| Week 04 | DeepMind Frontier Safety Framework & EU AI Act | 2026-08-31 | ✅ 완료 | [review_week04.md](reviews/week-04/review_week04.md) |
+| Week 04 | DeepMind Frontier Safety Framework (FSF v3.1) & EU AI Act | 2026-08-31 (2026-10-19 재작성) | ✅ 완료 | [review_week04.md](reviews/week-04/review_week04.md) |
 | Week 05 | Claude Opus 5 System Card & Fable 5 회수–재배포 사례 | 2026-09-07 | ✅ 완료 | [review_week05.md](reviews/week-05/review_week05.md) |
 | Week 06 | OpenAI GPT-5.6 (Sol/Terra/Luna) System Card — 전 모델 Bio/Cyber High & 2계층 세이프가드 | 2026-09-14 (2026-10-19 재작성) | ✅ 완료 | [review_week06.md](reviews/week-06/review_week06.md) |
 | Week 07 | Gemini 3.7 Flash Frontier Safety Report & FSF 3.1 | 2026-09-21 | ✅ 완료 | [review_week07.md](reviews/week-07/review_week07.md) |
@@ -83,7 +83,7 @@ flowchart TD
 | Week 12 | Mechanistic Interpretability: SAE & 서킷 분석 (Track 3 종합) | 2026-10-26 | ⬜ 예정 | — |
 | Week 13~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
 
-> ⚠️ **정정 이력**: Week 04(FSF 서술)는 상단에 정정 고지가 달려 있으며, **Week 06(GPT-5.6 System Card 서술)** 은 2026-10-12 원문 대조에서 확인된 오류를 바로잡아 **2026-10-19 82페이지 원문 PDF 기준으로 전면 재작성 완료**했습니다.
+> ✅ **정정 및 재작성 완료 이력 (2026-10-19)**: 원문 대조에서 오류가 확인되었던 **Week 04(DeepMind FSF v3.1 서술)** 와 **Week 06(OpenAI GPT-5.6 System Card 서술)** 모두 2026-10-19 각각 20페이지·82페이지 공식 원문 PDF를 100% 대조하여 전면 재작성 완료했습니다.
 
 ---
 
@@ -125,7 +125,7 @@ corpuse/
 │   ├── week-03/                       # 3주차: OpenAI Preparedness Framework (완료)
 │   │   ├── README.md
 │   │   └── review_week03.md
-│   ├── week-04/                       # 4주차: DeepMind FSF & EU AI Act (완료)
+│   ├── week-04/                       # 4주차: DeepMind FSF v3.1 & EU AI Act (2026-10-19 원문 기준 재작성 완료)
 │   │   ├── README.md
 │   │   └── review_week04.md
 │   ├── week-05/                       # 5주차: Claude Opus 5 System Card & Fable 5 회수–재배포 (완료)

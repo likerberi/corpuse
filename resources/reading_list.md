@@ -63,6 +63,8 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **Updating the Frontier Safety Framework (v3 시점)**: [https://deepmind.google/blog/updating-the-frontier-safety-framework/](https://deepmind.google/blog/updating-the-frontier-safety-framework/)
 - **Introducing the Frontier Safety Framework (v1, 2024-05)**: [https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)
 - **Frontier safety 허브**: [https://deepmind.google/frontier-safety/](https://deepmind.google/frontier-safety/)
+- **An Approach to Technical AGI Safety and Security (FSF v3.1 각주 7·10 인용)**: [arXiv:2504.01849](https://arxiv.org/abs/2504.01849)
+- **Evaluating Frontier Models for Stealth and Situational Awareness (FSF v3.1 각주 15 인용)**: [arXiv:2505.01420](https://arxiv.org/abs/2505.01420)
 
 ### Frontier Safety Reports (모델별 판정서)
 - **Gemini 3.7 Flash Frontier Safety Framework Report (2026-08, 41p)**: [PDF](https://storage.googleapis.com/deepmind-media/gemini/gemini_3-7_flash_fsf_report.pdf) — 도메인별 T/CCL 판정, 경보 임계치, 인간 행동 실험, 은밀성·상황 인식 평가
