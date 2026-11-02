@@ -81,8 +81,9 @@ flowchart TD
 | Week 10 | Scalable Oversight & CoT 감시가능성 | 2026-10-12 | ✅ 완료 | [review_week10.md](reviews/week-10/review_week10.md) |
 | Week 11 | Deception, Sleeper Agents & Sandbagging | 2026-10-19 | ✅ 완료 | [review_week11.md](reviews/week-11/review_week11.md) |
 | Week 12 | Mechanistic Interpretability: SAE & 서킷 분석 (Track 3 종합) | 2026-10-26 | ✅ 완료 | [review_week12.md](reviews/week-12/review_week12.md) |
-| Week 13 | 도구 사용(Tool-Use) 모델 및 Autonomous Agent의 안전 (Track 4 개막) | 2026-11-02 | ⬜ 예정 | — |
-| Week 14~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
+| Week 13 | 도구 사용(Tool-Use) 모델 및 Autonomous Agent의 안전 (Track 4 개막) | 2026-11-02 | ✅ 완료 | [review_week13.md](reviews/week-13/review_week13.md) |
+| Week 14 | 한국형 AI Safety 벤치마크 & 문화적/법적 가드레일 (인공지능기본법) | 2026-11-09 | ⬜ 예정 | — |
+| Week 15~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
 
 > ✅ **정정 및 재작성 완료 이력 (2026-10-19)**: 원문 대조에서 오류가 확인되었던 **Week 04(DeepMind FSF v3.1 서술)** 와 **Week 06(OpenAI GPT-5.6 System Card 서술)** 모두 2026-10-19 각각 20페이지·82페이지 공식 원문 PDF를 100% 대조하여 전면 재작성 완료했습니다.
 
@@ -150,14 +151,18 @@ corpuse/
 │   ├── week-11/                       # 11주차: Deception, Sleeper Agents & Sandbagging (완료)
 │   │   ├── README.md
 │   │   └── review_week11.md
-│   └── week-12/                       # 12주차: Mechanistic Interpretability: SAE & 서킷 분석, Track 3 종합 (완료)
+│   ├── week-12/                       # 12주차: Mechanistic Interpretability: SAE & 서킷 분석, Track 3 종합 (완료)
+│   │   ├── README.md
+│   │   └── review_week12.md
+│   └── week-13/                       # 13주차: Tool-Use & Autonomous Agent 안전, Track 4 개막 (완료)
 │       ├── README.md
-│       └── review_week12.md
+│       └── review_week13.md
 └── resources/
     ├── reading_list.md                # 앤트로픽/오픈AI/딥마인드/블루닷 공식 링크 모음 (전수 검증 완료)
     ├── lightweight_rsp_blueprint.md   # 한국형 소버린 AI를 위한 경량 RSP & 비상 거버넌스 블루프린트
     ├── incident_runbook.md            # 회수–재배포 인시던트 런북 (탐지→채점→차단→핫픽스→재배포→공개보고)
     ├── reasoning_cot_safety_guide.md  # 소버린 AI를 위한 CoT 추론 안전 모니터링 & 가드레일 실전 가이드 (+ §6 감시가능성 보존 · §7 화이트박스 프로브/SAE/NLA 결합)
     ├── frontier_eval_playbook.md      # 프론티어 위험 평가 설계 플레이북 (3단 임계치 · 평가 무결성 · 부정행위 검수 · §10 기만·사보타주·샌드배깅 검증)
-    └── korean_ai_constitution_guide.md# 한국형 인공지능 헌법 20조항 및 RLAIF/RBRM 실전 플레이북
+    ├── korean_ai_constitution_guide.md# 한국형 인공지능 헌법 20조항 및 RLAIF/RBRM 실전 플레이북
+    └── agentic_tool_guardrails_guide.md # 소버린 AI를 위한 도구 사용(Tool-Use) 및 자율 에이전트 격리·가드레일 실전 가이드 (OS/VM 샌드박스 · MITM 프록시 · CaMeL · 하드 승인 게이트)
 ```

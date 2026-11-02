@@ -10,29 +10,35 @@ Track 4에서는 한국을 비롯한 **소버린 AI(Sovereign AI)** 및 독자 �
 ---
 
 ## 🎯 핵심 학습 목표
-1. **비용 효율적인 경량 안전 파이프라인 (Cost-efficient Safety Pipeline)**:
-   - 오픈소스 안전 모델(Llama Guard, NeMo Guardrails, ShieldGemma 등)을 조합한 3중 인퍼런스 방어벽 구축.
-2. **한국어 및 국내 규제 특화 안전성 (Korean Specifics & Compliance)**:
-   - 개인정보보호법, 공공기관 보안성 가이드라인, 인공지능기본법에 맞춘 프롬프트 필터링 및 비식별화 체계.
+1. **도구 사용(Tool-Use) 및 자율 에이전트 4계층 격리·가드레일 (Week 13)**:
+   - OS 샌드박스(`Seatbelt`/`bubblewrap`)·컨테이너(`gVisor`)·하이퍼바이저 VM 기반 환경 격리, 방어용 MITM 세션 토큰 이그레스 프록시, 인바운드 프로브 + 아웃바운드 `Auto Mode` 이중 분류기, 프롬프트 지시를 대체하는 하네스 수준 결정론적 승인 게이트(`Hard Execution Gate`) 및 `CaMeL` 제어·데이터 흐름 분리 구축.
+   - 상세 실전 가이드: [`resources/agentic_tool_guardrails_guide.md`](../resources/agentic_tool_guardrails_guide.md) 및 [Week 13 리뷰](../reviews/week-13/review_week13.md)
+2. **비용 효율적인 경량 안전 파이프라인 (Cost-efficient Safety Pipeline)**:
+   - 오픈소스 안전 모델(Llama Guard, NeMo Guardrails, ShieldGemma 등)과 중간 레이어 선형 프로브를 조합한 다중 인퍼런스 방어벽 구축.
+3. **한국어 및 국내 규제 특화 안전성 (Korean Specifics & Compliance)**:
+   - 개인정보보호법, 공공기관 보안성 가이드라인, 금융보안원 AI 가이드라인, 인공지능기본법에 맞춘 프롬프트 필터링 및 비식별화 체계.
    - 다국어 번역 기반 탈옥(Cross-lingual Jailbreak) 및 한국 역사/정치적 논쟁 이슈에 대한 중립성 보장.
-3. **인시던트 대응 및 모델 재조정 런북 (Incident Response & Patching Runbook)**:
-   - Claude Fable, GPT-5.6 등의 선례와 같이, 배포 후 보안 취약점이 발견되었을 때 서비스 중단 최소화 및 긴급 회수/가드레일 재조정(Post-hoc Patching) 프로세스 구축.
+   - 상세 실전 가이드: [`resources/korean_ai_constitution_guide.md`](../resources/korean_ai_constitution_guide.md)
+4. **인시던트 대응 및 모델 재조정 런북 (Incident Response & Patching Runbook)**:
+   - Claude Fable 5, GPT-5.6 등의 선례와 같이, 배포 후 보안 취약점이 발견되었을 때 서비스 중단 최소화 및 긴급 회수/가드레일 재조정(Post-hoc Patching) 프로세스 구축.
+   - 상세 실전 가이드: [`resources/lightweight_rsp_blueprint.md`](../resources/lightweight_rsp_blueprint.md) 및 [`resources/incident_runbook.md`](../resources/incident_runbook.md)
 
 ---
 
-## 📖 소버린 AI 3계층 방어 아키텍처
+## 📖 소버린 AI 4계층 심층 방어 & 에이전트 격리 아키텍처
 
 ```mermaid
 flowchart TD
-    User([사용자 입력 / 한국어 쿼리]) --> Layer1[Layer 1: 입력 가드레일<br/>PII 마스킹 + Prompt Injection 차단]
-    Layer1 --> CoreModel[독자 파운데이션 모델 Core<br/>SFT + RLAIF 한국어 헌법 정렬]
-    CoreModel --> Layer2[Layer 2: 내부 추론 감시<br/>CoT 안전 필터 & 비정상 토큰 감지]
-    Layer2 --> Layer3[Layer 3: 출력 가드레일<br/>할루시네이션 검증 + 유해성/법적 규제 스크리닝]
-    Layer3 --> Response([안전한 최종 응답 반환])
+    User([사용자 입력 / 한국어 쿼리]) --> Layer1[Layer 1: 입력 가드레일<br/>PII 마스킹 + Direct Prompt Injection 차단]
+    Layer1 --> CoreModel[독자 파운데이션 모델 Core<br/>SFT + RLAIF 한국어 헌법 정렬 + Instruction Hierarchy]
+    CoreModel --> Layer2[Layer 2: 내부 추론 & 활성값 감시<br/>CoT 모니터 + 밀집 선형 프로브]
+    Layer2 --> AgentHarness[Layer 3: 에이전트 하네스 & CaMeL 제어·데이터 분리<br/>인바운드 Spotlighting 프로브 + 아웃바운드 Auto Mode 분류기<br/>+ 현재 턴 일회용 암호화 승인 게이트 Hard Gate]
+    AgentHarness --> Sandbox[Layer 4: OS/VM 샌드박스 & 방어용 MITM 이그레스 프록시<br/>read-write-no-delete 마운트 + 세션 토큰 강제 덮어쓰기 + Pull OTLP 감사]
+    Sandbox --> Response([안전한 도구 실행 및 최종 응답 반환])
     
     subgraph IncidentControl["긴급 인시던트 관제 (Hot-patch)"]
-        Layer1 -. 취약점 발생 시 .- Hotfix[실시간 차단 룰셋 배포]
-        Layer3 -. 취약점 발생 시 .- Hotfix
+        Layer1 -. 취약점 발생 시 .- Hotfix[실시간 차단 룰셋 및 피처 플래그 배포]
+        AgentHarness -. 취약점 발생 시 .- Hotfix
     end
 ```
 
@@ -41,7 +47,8 @@ flowchart TD
 ## 🇰🇷 실전 배포 체크리스트 (Sovereign AI Blueprint)
 
 - [ ] **데이터셋 전처리**: 개인정보(주민번호, 전화번호, 계좌 등) 정규식 및 NER 기반 사전 비식별화 완료.
-- [ ] **헌법적 정렬**: 한국 사회 가치관 및 현행법을 반영한 Harmlessness Constitution 작성 및 RLAIF 반영.
-- [ ] **입/출력 가드레일**: 경량 분류기(Inference Classifier) 레이턴시 < 20ms 유지.
-- [ ] **시스템 카드 발행**: 모델 스펙, 잔여 한계점, 안전성 평가 수치를 담은 투명성 문서 공개.
-- [ ] **인시던트 런북**: 이상 징후 감지 시 10분 내 특정 기능/도메인 차단 가능한 피처 플래그 운영.
+- [ ] **헌법적 정렬**: 한국 사회 가치관 및 현행법을 반영한 Harmlessness Constitution 작성 및 RLAIF 반영 ([`korean_ai_constitution_guide.md`](../resources/korean_ai_constitution_guide.md)).
+- [ ] **입/출력 가드레일 & 선형 프로브**: 경량 분류기(Inference Classifier) 및 중간 레이어 선형 프로브 레이턴시 < 20ms 유지 ([`reasoning_cot_safety_guide.md`](../resources/reasoning_cot_safety_guide.md)).
+- [ ] **에이전트 환경 격리 & 결정론적 하드 게이트**: 심볼릭 링크 사전 해석(`realpath`), `read-write-no-delete` 마운트, 방어용 MITM 프록시, `Tier 2` 고위험 도구 현재 턴 일회용 암호화 승인 토큰 및 `CaMeL` 데이터 흐름 정책 적용 ([`agentic_tool_guardrails_guide.md`](../resources/agentic_tool_guardrails_guide.md)).
+- [ ] **시스템 카드 발행**: 모델 스펙, 잔여 한계점, 안전성 평가 수치를 담은 투명성 문서 공개 ([`frontier_eval_playbook.md`](../resources/frontier_eval_playbook.md)).
+- [ ] **인시던트 런북**: 이상 징후 감지 시 10분 내 특정 기능/도메인 차단 가능한 피처 플래그 운영 ([`incident_runbook.md`](../resources/incident_runbook.md)).
