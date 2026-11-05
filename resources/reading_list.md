@@ -134,6 +134,35 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 - **Sabotage Evaluations for Frontier Models** (Benton 외, Anthropic, 2024): [arXiv:2410.21514](https://arxiv.org/abs/2410.21514) · [공식 블로그](https://www.anthropic.com/research/sabotage-evaluations) — 인간 의사결정 조작·코드 백도어 삽입·안전 평가 샌드배깅·감시자 속이기 4대 사보타주 평가
 - 시스템 카드 내 해당 절: Claude Opus 5 §2.4 Alignment risk update · §6.1~§6.7 Alignment assessment (UK AISI 비언어화 평가 인식 95% 쌍대 판별·사보타주·SHADE-Arena·LinuxArena 포함) / GPT-5.6 §7.2 Agentic coding misaligned behavior · §7.4 Metagaming · §9.1~§9.3 External alignment & sandbagging (링크는 위 §2·§3 참조)
 
+### 주제별: Mechanistic Interpretability & SAE (Week 12)
+> 🔎 **검증 상태 (2026-11-05)**: `www.anthropic.com` · `storage.googleapis.com` 링크는 HTTP 200 확인 및 원문 대조 완료. `arxiv.org` · `transformer-circuits.pub` · `huggingface.co` · `lesswrong.com` 링크는 해당 세션 네트워크 정책으로 **HTTP 확인 불가** — 검색 색인으로 실재만 확인했으므로 다음 점검 때 §6 스크립트로 재확인할 것.
+
+- **기초 — 중첩과 사전 학습**
+  - **Toy Models of Superposition** (Elhage 외, Anthropic, 2022): [Transformer Circuits](https://transformer-circuits.pub/2022/toy_model/index.html)
+  - **Towards Monosemanticity** (Bricken 외, Anthropic, 2023-10): [요약](https://www.anthropic.com/research/towards-monosemanticity-decomposing-language-models-with-dictionary-learning) · [논문](https://transformer-circuits.pub/2023/monosemantic-features) — 512뉴런 층을 4,000개 이상 특징으로 분해
+  - **Scaling Monosemanticity** (Templeton 외, Anthropic, 2024-05): [논문](https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html) · [Golden Gate Claude](https://www.anthropic.com/research/golden-gate-claude) — Claude 3 Sonnet 최대 34M 특징, 안전 관련 특징(백도어·생물무기·기만·아첨) 및 조향
+- **SAE 스케일업 · 조향 평가 · 회의론**
+  - **Scaling and evaluating sparse autoencoders** (Gao 외, OpenAI, 2024): [arXiv:2406.04093](https://arxiv.org/abs/2406.04093) — TopK SAE, GPT-4 16M 잠재변수
+  - **Gemma Scope** (Lieberum 외, Google DeepMind, 2024-08): [PDF](https://storage.googleapis.com/gemma-scope/gemma-scope-report.pdf) — 400개+ JumpReLU SAE, GPT-3 학습 연산량 20% 이상 · **Gemma Scope 2** (Gemma 3 전 층 SAE + 트랜스코더): [Hugging Face](https://huggingface.co/google/gemma-scope-2-27b-it)
+  - **Evaluating feature steering** (Durmus 외, Anthropic, 2024-10): [anthropic.com/research](https://www.anthropic.com/research/evaluating-feature-steering) — 조향 최적 구간 −5~+5, 표적 외 효과
+  - **Negative Results for SAEs On Downstream Tasks** (Google DeepMind 해석가능성팀, 2025-03): [LessWrong 크로스포스트](https://www.lesswrong.com/posts/4uXCAJNuPKtKBsi28/negative-results-for-saes-on-downstream-tasks) — OOD 유해 의도 탐지에서 선형 프로브 > SAE
+  - **Are Sparse Autoencoders Useful? A Case Study in Sparse Probing** (Kantamneni 외, 2025): [arXiv:2502.16681](https://arxiv.org/abs/2502.16681) · **AxBench** (Wu 외, 2025): [arXiv:2501.17148](https://arxiv.org/abs/2501.17148)
+- **회로 추적**
+  - **Tracing the thoughts of a large language model** (Anthropic, 2025-03): [공지](https://www.anthropic.com/research/tracing-thoughts-language-model) · [Circuit Tracing](https://transformer-circuits.pub/2025/attribution-graphs/methods.html) · [Biology](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
+  - **Open-sourcing circuit-tracing tools** (Anthropic, 2025-05): [anthropic.com/research](https://www.anthropic.com/research/open-source-circuit-tracing) — Gemma-2-2b · Llama-3.2-1b, Neuronpedia
+- **감사 · 페르소나 · 모델 비교 · 언어화**
+  - **Auditing language models for hidden objectives** (Marks 외, Anthropic, 2025-03): [블로그](https://www.anthropic.com/research/auditing-hidden-objectives) · [arXiv:2503.10965](https://arxiv.org/abs/2503.10965) — 블라인드 감사 4팀 중 3팀 성공
+  - **Persona vectors** (Anthropic, 2025-08): [블로그](https://www.anthropic.com/research/persona-vectors) · [arXiv:2507.21509](https://arxiv.org/abs/2507.21509) · **Persona Features Control Emergent Misalignment** (OpenAI): [arXiv:2506.19823](https://arxiv.org/abs/2506.19823)
+  - **Emergent introspective awareness in LLMs** (Anthropic, 2025-10): [블로그](https://www.anthropic.com/research/introspection)
+  - **The assistant axis** (Anthropic, 2026-01): [블로그](https://www.anthropic.com/research/assistant-axis) · **A "diff" tool for AI models** (2026-03): [블로그](https://www.anthropic.com/research/diff-tool) · **Emotion concepts** (2026-04): [블로그](https://www.anthropic.com/research/emotion-concepts-function)
+  - **Natural Language Autoencoders** (Anthropic, 2026-05): [블로그](https://www.anthropic.com/research/natural-language-autoencoders) · [논문](https://transformer-circuits.pub/2026/nla/index.html) — 비언어화 평가 인식 16% / 26% / 실사용 <1%
+  - **A global workspace in language models** (Anthropic, 2026-07): [블로그](https://www.anthropic.com/research/global-workspace) — J-lens, 평가 인식 패턴 제거 실험
+- **2026년 실전 사용 (사고 조사)**
+  - **An alignment assessment of recent cybersecurity incidents** (Anthropic, 2026-09-09): [anthropic.com/research](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents) — NLA + T-lens 교차 사용, "약하게 시사"
+  - **An alignment assessment of the UK AISI cybertesting incident** (Anthropic, 2026-10-23): [anthropic.com/research](https://www.anthropic.com/research/alignment-assessment-ukaisi) — 재표본 실험 최우선, 해석가능성 결과는 보고서 결론에 미사용
+  - **Investigating unintended model actions** (Anthropic, 2026-10-09): [anthropic.com/research](https://www.anthropic.com/research/investigating-unintended-model-actions)
+- 시스템 카드·판정서 내 해당 절: Claude Opus 5 §3.2 (1단 활성값 프로브) · §6.6.1 (NLA) / GPT-5.6 §9.4.3 (Activation Classifiers) / Gemini 3.7 Flash FSF Report p.28 (Introspection Probes) (링크는 위 §2·§3·§4 참조)
+
 ---
 
 ## 6. 링크 검증 규칙 (Link Hygiene)
