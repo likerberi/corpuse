@@ -165,5 +165,6 @@ corpuse/
     ├── frontier_eval_playbook.md      # 프론티어 위험 평가 설계 플레이북 (3단 임계치 · 평가 무결성 · 부정행위 검수 · §10 기만·사보타주·샌드배깅 검증)
     ├── korean_ai_constitution_guide.md# 한국형 인공지능 헌법 20조항 및 RLAIF/RBRM 실전 플레이북
     ├── whitebox_monitoring_guide.md   # 화이트박스 감사 & 활성값 모니터링 실전 가이드 (프로브 운영 · 조향 규칙 · 모델 비교 감사 · 증거 등급)
+    ├── agent_containment_guide.md     # 에이전트 봉쇄(Containment) 체크리스트 · 이그레스 역량 심사 · KISA 제로트러스트 매핑 가이드
     └── agentic_tool_guardrails_guide.md # 소버린 AI를 위한 도구 사용(Tool-Use) 및 자율 에이전트 격리·가드레일 실전 가이드 (OS/VM 샌드박스 · MITM 프록시 · CaMeL · 하드 승인 게이트)
 ```
