@@ -163,6 +163,36 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
   - **Investigating unintended model actions** (Anthropic, 2026-10-09): [anthropic.com/research](https://www.anthropic.com/research/investigating-unintended-model-actions)
 - 시스템 카드·판정서 내 해당 절: Claude Opus 5 §3.2 (1단 활성값 프로브) · §6.6.1 (NLA) / GPT-5.6 §9.4.3 (Activation Classifiers) / Gemini 3.7 Flash FSF Report p.28 (Introspection Probes) (링크는 위 §2·§3·§4 참조)
 
+### 주제별: Tool Use & Autonomous Agent Guardrails (Week 13)
+> 🔎 **검증 상태 (2026-11-10)**: `www.anthropic.com` · `raw.githubusercontent.com` 링크는 HTTP 200 확인 및 원문 대조 완료. `openai.com` · `metr.org` · `fortune.com` · `blog.google` · `ai.meta.com` · `simonwillison.net` · `genai.owasp.org` · `arxiv.org` 및 국내(`kisa.or.kr` · `aikorea.go.kr` · `aitimes.kr` · `nocutnews.co.kr`) 링크는 해당 세션 네트워크 정책으로 **HTTP 확인 불가** — 검색 색인으로 실재만 확인했으므로 다음 점검 때 §6 스크립트로 재확인할 것. `github.com` 웹 페이지는 프록시 정책상 403이어서 같은 파일의 `raw.githubusercontent.com` 경로로 인용함.
+
+- **격리 아키텍처 · 분류기 설계 (Anthropic)**
+  - **How we contain Claude across products** (2026-05-25): [anthropic.com/research](https://www.anthropic.com/research/how-we-contain-claude) — 위협 3분류 × 방어 3구성요소, 격리 3패턴(gVisor 컨테이너 · OS 샌드박스 · 봉인 VM), 승인율 약 93%, 피싱 레드팀 24/25, 승인 도메인 경유 유출
+  - **How we built Claude Code auto mode** (2026-03-25): [anthropic.com/research](https://www.anthropic.com/research/claude-code-auto-mode) — 추론 맹목 2단 분류기, FPR 0.4% / 실제 과잉 열성 FNR 17%
+  - **Beyond permission prompts: making Claude Code more secure and autonomous** (2025-10-20): [anthropic.com/research](https://www.anthropic.com/research/claude-code-sandboxing) — 파일시스템 + 네트워크 격리, 권한 요청 84% 감소 · [`sandbox-runtime` README](https://raw.githubusercontent.com/anthropic-experimental/sandbox-runtime/main/README.md)
+  - **Trustworthy agents in practice** (2026-04-09): [anthropic.com/research](https://www.anthropic.com/research/trustworthy-agents) — 모델 · 하네스 · 도구 · 환경 4구성요소
+  - **Scaling Managed Agents** (2026-04-08): [anthropic.com/research](https://www.anthropic.com/research/managed-agents) — 자격증명 볼트 + MCP 프록시 · **Code execution with MCP** (2025-11-04): [anthropic.com/research](https://www.anthropic.com/research/code-execution-with-mcp) — 하네스 단 PII 토큰화
+- **프롬프트 인젝션 강건성**
+  - **Piloting Claude in Chrome** (Anthropic, 2025-08-25): [anthropic.com/news](https://www.anthropic.com/news/claude-for-chrome) — 23.6% → 11.2%, 브라우저 특화 35.7% → 0% · **Mitigating the risk of prompt injections in browser use** (2025-11-24): [anthropic.com/research](https://www.anthropic.com/research/prompt-injection-defenses) — 적응형 100회 약 1%
+  - **Continuously hardening ChatGPT Atlas against prompt injection attacks** (OpenAI, 2025-12-22): [openai.com](https://openai.com/index/hardening-atlas-against-prompt-injection) — RL 학습 자동 공격자
+  - **Architecting security for agentic capabilities in Chrome** (Google, 2025-12): [blog.google](https://blog.google/security/architecting-security-for-agentic/) — User Alignment Critic · Origin Sets
+  - Gray Swan 공개 대회 (arXiv:2603.15714) — 위 §5 "기타" 참조
+- **구조적 설계 원칙 · 표준**
+  - **The lethal trifecta for AI agents** (Simon Willison, 2025-06-16): [simonwillison.net](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) · **Agents Rule of Two** (Meta, 2025-10-31): [ai.meta.com](https://ai.meta.com/blog/practical-ai-agent-security/)
+  - **Defeating Prompt Injections by Design (CaMeL)** (Debenedetti 외, Google · Google DeepMind · ETH Zurich, 2025): [arXiv:2503.18813](https://arxiv.org/abs/2503.18813) · [README](https://raw.githubusercontent.com/google-research/camel-prompt-injection/main/README.md)
+  - **OWASP Top 10 for Agentic Applications for 2026** (2025-12-09): [genai.owasp.org](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) — ASI01 Agent Goal Hijack
+  - **MCP Specification 2026-07-28 — Security Best Practices**: [GitHub 원문](https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/docs/2026-07-28/tutorials/security/security_best_practices.mdx) — 토큰 통과 금지, 혼동된 대리인, 로컬 서버 동의·샌드박스, 범위 최소화
+- **에이전트 사고 (2025~2026)**
+  - **Disrupting the first reported AI-orchestrated cyber espionage campaign** (Anthropic, 2025-11-13): [anthropic.com/news](https://www.anthropic.com/news/disrupting-AI-espionage) — 표적 약 30곳, 캠페인 80~90% AI 수행
+  - **Investigating three real-world incidents in our cybersecurity evaluations** (Anthropic, 2026-07-30): [anthropic.com/news](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals) · **Improving our alignment and security efforts** (2026-08-31): [anthropic.com/news](https://www.anthropic.com/news/improving-alignment-security-efforts) — 평가 파트너 봉쇄 관행(사전 탈출 시험 · 해결 가능성 · 범위 지시문 · 실시간 감시)
+  - **OpenAI / Hugging Face 사고** (2026-07): [METR 독립 조사 (2026-08-26)](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/) · [Fortune 보도 (2026-07-21)](https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/)
+  - 사고 정렬 평가 3편(2026-09-09 · 10-09 · 10-23)은 위 "Mechanistic Interpretability & SAE (Week 12)" 항목 참조
+- **국내 지침**
+  - **에이전틱 AI 제로트러스트 안내서** (과기정통부·KISA, 2026-11-06): [보도 (인공지능신문)](https://www.aitimes.kr/news/articleView.html?idxno=42623) · [KISA 가이드라인 목록](https://www.kisa.or.kr/2060204) — 입력 처리 · 도구 호출 · 작업 위임 · 외부 통신 단계별 검증
+  - **AI 보안 위협 대응 매뉴얼 · AI 보안 레드티밍 가이드** (과기정통부·KISA, 2026-07-08): [aikorea.go.kr](https://www.aikorea.go.kr/web/board/brdDetail.do?menu_cd=000011&num=818)
+  - **「금융분야 인공지능 가이드라인」 개정안** (금융위원회, 2026-06-18): [보도 (노컷뉴스)](https://www.nocutnews.co.kr/news/6534884)
+- 시스템 카드 내 해당 절: Claude Opus 5 §5 Agentic safety (§5.2.2.1 프롬프트 인젝션) / GPT-5.6 §3.3 우발적 데이터 파괴 회피 · §3.4 컴퓨터 사용 확인 · §4.2 프롬프트 인젝션 & GPT-Red (링크는 위 §2·§3 참조)
+
 ---
 
 ## 6. 링크 검증 규칙 (Link Hygiene)
