@@ -1,196 +1,143 @@
-# [Week 03] OpenAI Preparedness Framework & 위험 임계치(Tracked Risk Categories) 심층 분석
+# [Week 03] OpenAI Preparedness Framework (Beta → v2) & 위험 임계치 심층 분석
 
-- **리뷰 일자**: 2026-09-01 (화)
+- **리뷰 일자**: 2026-09-01 (화) *(2026-11-12 Preparedness v2 원문 및 AI 기본법 조문 정정 완료)*
 - **트랙/갈래**: Track 1 — RSP & Frontier Governance
 - **난이도**: 🟡 중급
 - **대상 문서 및 원문 링크**:
-  - [OpenAI — Preparedness Framework (Beta & Updates)](https://openai.com/safety/preparedness/)
-  - [OpenAI — Preparedness Framework Specification PDF](https://cdn.openai.com/openai-preparedness-framework-beta.pdf)
-  - [OpenAI — GPT-5.6 Family System Card & Preparedness Report](https://deploymentsafety.openai.com/gpt-5-6) *(보조 자료)*
-  - 비교 자료: [Anthropic Responsible Scaling Policy v2](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy), [DeepMind Frontier Safety Framework](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)
+  - [OpenAI — Preparedness Framework Version 2 (2025-04-15, 공식 전문 PDF)](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf) — **본 리뷰의 현행 1차 사료**
+  - [OpenAI — Preparedness Framework Overview Hub](https://openai.com/safety/preparedness/) · [Beta Specification PDF (2023-12 아카이브)](https://cdn.openai.com/openai-preparedness-framework-beta.pdf)
+  - [OpenAI — GPT-5.6 Family (Sol / Terra / Luna) System Card (2026-07-09, 82p PDF) §9 Preparedness](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf) — **v2 실집행 검증 사료 (전 모델 Bio/Cyber `High` 판정 및 세이프가드 입증)**
+  - 비교 사료: [Anthropic RSP v3 (2026-02)](https://www.anthropic.com/news/responsible-scaling-policy-v3), [Google DeepMind FSF v3.1 (2026-04 PDF)](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf)
+
+> ✅ **사료 검증 및 정정 노트 (2026-11-12)**: 초판(2026-09-01)에는 두 가지 중대한 오류가 있었습니다. ① 2023년 12월 **Beta(v1)** 기준("4대 범주 Low/Medium/High/Critical 매트릭스 및 Post-mitigation Medium 이하일 때만 배포 허용")으로만 서술되어, 2025년 4월 15일 개정된 현행 **Preparedness Framework Version 2** 및 [Week 06 리뷰](../week-06/review_week06.md)(`GPT-5.6 Sol/Terra/Luna` 전원 `High` 등급 배포)와 모순되었고, ② 국내 「인공지능기본법」의 고영향 AI 안전성·위험관리 조문을 **제23조로 오기**(실제 조문은 **제31조~제34조**)했으며 UK AISI `Inspect` 구 URL이 남아 있었습니다. 본 개정판은 `Preparedness Framework v2` 공식 PDF와 `GPT-5.6 System Card` §9, 그리고 국가법령정보센터 법령 원문을 대조해 전수 바로잡았습니다.
 
 ---
 
 ## 1. 핵심 요약 (Executive Summary)
 
-OpenAI의 **Preparedness Framework**는 프론티어 AI 모델의 학습과 배포 전 과정에서 발생 가능한 심각한 재앙적 위험(Catastrophic Risks)을 과학적으로 추적·평가·완화하기 위한 공식 거버넌스 및 위험 관리 체계입니다. 4대 핵심 위험 범주(CBRN, 사이버보안, 설득/기만, 모델 자율성)에 대해 정량적 위험 매트릭스(Low, Medium, High, Critical)를 정의하고, **완화 조치 적용 후(Post-mitigation) 위험도가 모든 범주에서 'Medium 이하'일 때만 배포를 허용**하는 정량적 배포 게이트(Deployment Gate)를 확립했습니다.
+OpenAI의 **Preparedness Framework**는 수천 명의 사망·중상이나 수천억 달러 규모의 경제적 피해로 정의되는 **심각한 피해(Severe Harm)** 를 유발할 수 있는 프론티어 역량을 사전 추적·평가하고, 그에 상응하는 안전장치를 강제하는 위험 관리 체계입니다.
 
-- **핵심 목표**: 급속도로 확장되는 프론티어 모델 역량이 치명적인 국가 안보 및 사회적 재앙으로 번지지 않도록, 정량화된 벤치마크 기반의 위험 임계치(Thresholds)와 독립적 안전 의사결정 파이프라인을 구축한다.
+가장 중요한 진화는 **2023년 12월 Beta(v1)에서 2025년 4월 15일 Version 2로의 구조 전환**입니다. 초기 Beta가 `CBRN · Cyber · Persuasion · Model Autonomy` 4개 영역에 `Low~Critical` 점수를 매기고 *"완화 후(Post-mitigation) 점수를 Medium 이하로 낮춰야만 배포한다"* 고 규정했던 것과 달리, 현행 **Version 2** 는 파국적 이중용도 위험이 명확한 **3대 추적 범주(`Biological & Chemical` · `Cybersecurity` · `AI Self-Improvement`)** 와 차세대 위협을 탐색하는 **5대 연구 범주(Research Categories)** 로 이원화하고, 역량 임계치를 **`High`와 `Critical` 2단계 실행 게이트**로 재편했습니다. 핵심 원칙은 `High` 역량에 도달한 모델을 "점수상 Medium으로 깎는 것"이 아니라, **다층 세이프가드와 보안 통제를 통해 심각한 피해의 잔여 위험을 충분히 최소화(sufficiently minimize)했음을 `Safeguards Report`와 `Safety Advisory Group(SAG)` 심의로 입증한 뒤 배포**하는 것입니다.
+
+- **핵심 목표**: 프론티어 모델이 위험 임계치(`High` / `Critical`)를 넘는 시점을 정량 벤치마크로 포착하고, 임계치에 비례하는 배포 방어(활성값·안전 추론 모니터) 및 가중치 보안 없이는 외부 배포를 허용하지 않는 실행 게이트를 확립한다.
 - **주요 제안/발견**:
-  1. 위험 평가는 완화 장치가 없는 원시 모델 역량(**Pre-mitigation Score**)과 시스템 가드레일·RLAIF가 결합된 실전 배포 역량(**Post-mitigation Score**)을 엄격히 분리하여 측정한다.
-  2. 모델 학습 지속 조건(High 이하)과 모델 배포 허용 조건(Medium 이하)을 이원화하여, 고위험 모델이라도 통제된 격리 환경에서는 안전 연구를 위한 추가 학습을 허용하는 유연성을 확보한다.
-  3. 전담 평가 조직(Preparedness Team)의 기술적 평가가 리더십과 이사회(Board)의 의사결정으로 직결되는 내부 거버넌스 루프(SAG: Safety Advisory Group)를 운영한다.
-- **핵심 키워드**: `#PreparednessFramework` `#TrackedRiskCategories` `#RiskScorecard` `#DeploymentGate` `#PostMitigation` `#SovereignPreparedness`
+  1. **3대 추적 범주(Tracked Categories)와 5대 연구 범주(Research Categories)의 분리**: 당장 조작적 임계치 설정과 실행 게이트 적용이 가능한 영역(`Bio/Chem`, `Cyber`, `AI Self-Improvement`)과 위협 모델·측정법을 정립 중인 영역(`장기 자율성`, `샌드배깅`, `자율 복제·적응`, `안전장치 무력화`, `핵·방사능`)을 분리해 평가 자원을 집중했다.
+  2. **Beta의 'Pre/Post-mitigation 등급 하향' 폐기와 v2의 '세이프가드 충분성 입증' 도입**: `GPT-5.6` 패밀리(`Sol · Terra · Luna`)가 생물·화학과 사이버에서 전원 `High` 판정을 받고도 배포될 수 있었던 법적·절차적 근거가 바로 v2의 맞춤형 세이프가드 충분성 입증(`Safeguards Report`) 구조다.
+  3. **소형·고속 모델까지 포괄하는 역량 기반 게이트**: 사전학습 연산량이 작더라도 사후학습·추론 강화로 `High` 역량을 보이면 예외 없이 동일한 프레임워크 통제를 받는다(`GPT-5.6 Luna` 사례).
+- **핵심 키워드**: `#PreparednessFrameworkV2` `#SevereHarm` `#TrackedCategories` `#ResearchCategories` `#HighAndCriticalThresholds` `#SafeguardsReport` `#SAG`
 
 ---
 
 ## 2. 세부 내용 분석 (In-depth Technical Analysis)
 
-### 2.1 4대 추적 위험 범주 (Tracked Risk Categories)와 위협 정의
+### 2.1 Beta(2023)에서 Version 2(2025-04)로의 구조 개편
 
-OpenAI는 프론티어 AI의 파국적 위험을 다음 4대 범주로 표준화하여 상시 모니터링합니다:
+왜 OpenAI는 1년 반 만에 Beta의 4대 범주·4단계 스코어카드를 뜯어고쳤을까요? 추론 모델(`o1`·`o3` → `GPT-5` 계열)을 실제 평가해 보니 두 가지 한계가 드러났기 때문입니다.
+1. **범주 성격의 비대칭성**: 기존 `Persuasion(설득)`은 정치·사회적 오남용 위험은 크지만 단일 사건으로 수천 명 사망급 '파국적 비가역 재앙(Severe Harm)' 임계치를 일의적으로 긋기 어려웠던 반면(일반 안전 정책·실시간 모니터링으로 이관), 핵·방사능이나 평가 샌드배깅은 별도 연구 트랙이 필요했습니다.
+2. **"Post-mitigation 점수 하향"의 착시**: 모델 가중치 자체에 이미 `High` 역량이 들어 있는데 시스템 프롬프트나 거부 학습만으로 점수를 `Medium`이라 부르면, 새로운 적응형 탈옥이 나왔을 때 기저 역량이 그대로 노출되는 위험을 가리게 됩니다. 따라서 **모델의 기저 역량 등급(`High`/`Critical`)은 정직하게 그대로 고정해 두고, 그 등급이 요구하는 방어·모니터링·보안 수준을 충족했는지를 별도로 심사**하는 쪽(Anthropic RSP와 유사한 구조)으로 수렴한 것입니다.
 
-```mermaid
-mindmap
-  root((OpenAI 4대 위험 범주))
-    CBRN (화생방핵)
-      생물학적 병원체 합성·배양 조력
-      화학 작용제 제조 프로토콜 생성
-      방사능/핵 기술 접근 장벽 완화
-    Cybersecurity (사이버보안)
-      제로데이(0-day) 취약점 자동 발굴
-      엔드투엔드 사이버 침투 공격 자동화
-      신종 악성코드 생성 및 난독화
-    Persuasion (설득 및 심리 기만)
-      인간 신념 및 정치적 견해 고도 조작
-      맞춤형 사회공학/피싱 기만 자동화
-      상호작용 기반 대규모 여론 왜곡
-    Model Autonomy (모델 자율성)
-      자율적 리소스 획득 및 재정적 독립
-      자체 코드 수정 및 자체 복제(Self-replication)
-      인간의 셧다운 및 감시 회피(Sandbagging)
-```
-
-| 범주 | 핵심 평가 질문 (Key Evaluation Question) | 주요 위협 시나리오 |
+| 구분 | Preparedness **Beta (2023-12)** | Preparedness **Version 2 (2025-04 ~ 현행)** |
 | :--- | :--- | :--- |
-| **CBRN** | 비전문가가 대량살상 병원체나 화학 무기를 획득·배양하는 데 실행 가능한 병목 단계(Actionable Bottleneck)를 해결해 주는가? | 유전자 합성 주문 우회 프로토콜 제공, 위험 생물학적 무기 배합 가이드라인 |
-| **Cybersecurity** | 기존 공세적 보안 도구 대비 사이버 공격자의 침투 성공률과 공격 속도를 유의미하게 증분(Uplift)시키는가? | 고난도 CTF 문제 자율 해결, 보안 패치 분석을 통한 제로데이 익스플로잇 코드 자동 작성 |
-| **Persuasion** | 인간 전문가 수준 이상의 설득력으로 다수의 인간 신념을 변화시키거나 개별화된 사회공학 사기를 성공시키는가? | 다회차 대화를 통한 정치적 입장 전향 실험, 정교한 표적형 피싱 및 가짜뉴스 캠페인 |
-| **Model Autonomy** | 인간의 지속적인 감독 없이 복잡한 장기 과업을 자율 수행하고 자기 보존/복제를 시도하는가? | 클라우드 인스턴스 자동 결제 및 자체 복제본 배포, 감시 프롬프트 우회 및 코드 은폐 |
+| **추적 범주 (Tracked)** | CBRN, Cybersecurity, Persuasion, Model Autonomy (4종) | **Biological & Chemical**, **Cybersecurity**, **AI Self-Improvement** (3종 집중) |
+| **연구 범주 (Research)** | 별도 구분 없음 | **Long-range Autonomy, Sandbagging, Autonomous Replication & Adaptation, Undermining Safeguards, Nuclear & Radiological** (5종) |
+| **임계치 체계** | Low / Medium / High / Critical 4단계 매트릭스 | 실행 게이트를 발동하는 **`High` 및 `Critical` 역량 임계치** 중심 (`Below High` / `High` / `Critical`) |
+| **배포 판정 논리** | 가드레일 적용 후(Post-mitigation) 점수가 전 영역 `Medium` 이하일 것 | 기저 역량이 `High` 도달 시, 잔여 위험을 **충분히 최소화(sufficiently minimize)** 하는 다층 세이프가드 입증(`Safeguards Report`) 후 배포. `Critical`은 해당 위험을 완전히 통제할 보안·안전 태세 확립 전 배포 및 무방비 개발 제한 |
 
 ---
 
-### 2.2 4단계 위험 등급 매트릭스 (Risk Scorecard) 및 판정 기준
-
-OpenAI는 각 위험 범주를 4단계(Low, Medium, High, Critical)로 정량 구분합니다.
-
-```mermaid
-flowchart LR
-    Low["🟢 Low<br/>기존 웹/기본 도구 수준"] --> Medium["🟡 Medium<br/>전문가 보조 / 효율 증대<br/>【배포 허용 상한선】"]
-    Medium --> High["🟠 High<br/>비전문가의 전문가급 공격 조력<br/>【배포 불가 / 훈련만 허용】"]
-    High --> Critical["🔴 Critical<br/>자율적 재앙 초래 / 통제 상실<br/>【훈련 및 배포 전면 중단】"]
-```
-
-| 위험 등급 | CBRN 지표 | Cybersecurity 지표 | Persuasion 지표 | Model Autonomy 지표 |
-| :---: | :--- | :--- | :--- | :--- |
-| **Low** | 웹 검색 가능한 기본 교과서 지식 수준 | 기초 스크립트 작성 및 일반 취약점 설명 | 일반적인 글쓰기 보조 수준의 설득력 | 짧은 단일 단계 도구 호출만 가능 |
-| **Medium** | 전문가의 작업 효율을 유의미하게 보조 | 알려진 취약점(N-day) 익스플로잇 자동화 보조 | 인간 작가 수준의 설득력 및 맞춤형 텍스트 생성 | 다단계 도구 체이닝 및 중간 난도 에이전트 과업 자율 수행 |
-| **High** | **비전문가가 위험 물질을 실제로 합성할 수 있도록 실질적 조력** | **고가치 타깃에 대한 엔드투엔드 공격 자율 수행 또는 제로데이 발굴** | **통계적으로 유의미하게 인간 전문가를 능가하는 신념 조작 역량** | **자율 복제 및 리소스 획득 과업의 상당 부분을 독립 수행** |
-| **Critical** | 인간의 개입을 완전히 배제한 CBRN 무기화 자율 설계 | 국가 핵심 기반시설을 마비시키는 자율 사이버 공격 작전 수행 | 인간이 저항할 수 없는 수준의 실시간 멀티모달 심리 조작 | 인간의 통제를 완벽히 기만하고 자율적으로 생존 및 확산 |
-
----
-
-### 2.3 훈련 및 배포 의사결정 게이트 (Action Thresholds)
+### 2.2 현행 Version 2의 3대 추적 범주와 `High` / `Critical` 임계치 정의
 
 ```mermaid
 flowchart TD
-    A["신규 파운데이션 모델 훈련 체크포인트"] --> B["원시 역량 평가 (Pre-mitigation Eval)"]
-    B --> C{"원시 위험도 판정"}
-    C -- "Critical" --> D["🚫 훈련 즉시 중단<br/>가중치 완전 격리 & 이사회 보고"]
-    C -- "High 이하" --> E["보안 격리 환경 하에서 훈련 지속"]
-    
-    E --> F["훈련 완료 및 안전 완화 조치 적용<br/>(RLAIF + Guardrails + System Prompt)"]
-    F --> G["완화 후 역량 평가 (Post-mitigation Eval)"]
-    G --> H{"Post-mitigation 위험도 판정"}
-    H -- "High 또는 Critical 잔존" --> I["🚫 배포 금지<br/>추가 완화 연구 또는 모델 폐기"]
-    H -- "모든 범주 Medium 이하" --> J["Safety Advisory Group (SAG) 정밀 심의"]
-    J --> K["경영진(Leadership) & 이사회 승인"]
-    K --> L["✅ 안전 배포 진행 (API / 프로덕션)"]
+    Root["<b>OpenAI Preparedness Framework v2</b><br/>(Severe Harm 통제 체계)"]
+
+    Root --> Tracked["<b>3대 핵심 추적 범주 (Tracked Categories)</b><br/>명확한 High / Critical 임계치 & 세이프가드 게이트 발동"]
+    Root --> Research["<b>5대 연구 범주 (Research Categories)</b><br/>위협 모델링 & 차세대 측정 벤치마크 개발"]
+
+    Tracked --> T1["<b>1. Biological & Chemical</b><br/>• High: 초심자(Novice)에게 위험 물질 합성·무기화의 실질적 병목 조력(암묵지·트러블슈팅)<br/>• Critical: 신규 병원체·작용제 무인 설계 및 고위험 엔지니어링 전체 대체"]
+    Tracked --> T2["<b>2. Cybersecurity</b><br/>• High: 하드닝된 표적 상대 엔드투엔드 공격 자동화 또는 실전 취약점 발굴·익스플로잇 유의미한 증분<br/>• Critical: 최고 수준 방어망·핵심 인프라 대상 무인 제로데이 전체 체인 공격 작전 수행"]
+    Tracked --> T3["<b>3. AI Self-Improvement</b><br/>• High: 최정예 인간 AI 연구 조교 수준의 연구·엔지니어링 루프 대폭 가속<br/>• Critical: 인간 감독을 앞지르는 재귀적 자율 자기개선 루프 형성"]
+
+    Research --- RList["• Long-range Autonomy (장기 자율 과업)<br/>• Sandbagging (안전 평가 의도적 저성능)<br/>• Autonomous Replication & Adaptation (자율 복제·생존)<br/>• Undermining Safeguards (감시·안전장치 무력화)<br/>• Nuclear & Radiological (핵·방사능)"]
 ```
 
-1. **학습 중단 게이트 (Training Halt)**: Pre-mitigation 평가 결과 어느 한 범주라도 `Critical`에 도달하면 추가 학습을 즉시 중단하고 완전 격리 모드로 전환합니다.
-2. **배포 승인 게이트 (Deployment Gate)**: RLAIF, 분류기 필터, 시스템 가드레일을 모두 적용한 상태의 **Post-mitigation 점수가 4대 전 범주에서 `Medium` 이하**여야만 배포가 가능합니다. 만약 가드레일을 적용해도 사이버 영역에서 `High`가 남아있다면 배포는 절대 불허됩니다.
+실제로 Week 06에서 검토한 **`GPT-5.6 System Card`(2026-07-09, §9)** 는 이 v2 임계치를 어떻게 정량 측정하는지 명확히 보여줍니다:
+- **Biological & Chemical (`Sol · Terra · Luna` 전원 `High`, `Critical` 미달)**: 습식 실험 트러블슈팅 4개 벤치마크(`Multimodal Troubleshooting Virology`, `ProtocolQA Open-Ended`, `Tacit Knowledge`, `TroubleshootingBench`) 중 3개에서 전문가 80백분위 임계치를 넘어 `High` 판정 → 반면 신규 바이러스·단백질 설계(`AAV Capsid`, `Hard-negative protein binding`, `Nucleobench`) 3종은 모두 임계치 미달로 `Critical` 배제.
+- **Cybersecurity (`Sol · Terra · Luna` 전원 `High`, `Critical` 미달)**: 내부 고난도 CTF 63문항에서 전 모델 `High` 돌파(`Sol` `96.7%`) → 반면 실제 광범위 배포 SW 대상 다일(multi-day) 취약점 캠페인 `VulnLMP`에서 독립 전체 체인(full-chain) 익스플로잇 0건으로 `Critical` 배제.
+- **AI Self-Improvement (전 모델 `Below High`)**: 개편된 5대 내부 엔지니어링 벤치마크에서 향상되었으나 프론티어 사전학습 엔드투엔드 자동화에는 미달.
 
 ---
 
-### 2.4 Anthropic RSP vs OpenAI Preparedness Framework 1:1 심층 비교
+### 2.3 의사결정 거버넌스 및 다층 완화 파이프라인
 
-| 비교 축 | Anthropic RSP (v2) | OpenAI Preparedness Framework |
-| :--- | :--- | :--- |
-| **프레임워크 구조** | **ASL 단일 시스템 등급 (ASL-1~4)**<br/>시스템 전체에 요구되는 안전 표준 묶음 | **4대 범주별 분리 스코어카드 (Low~Critical)**<br/>위협 영역별 독립적 위험도 산정 |
-| **보안의 위상** | **가중치 보안(Security Standard)을 독립된 축으로 최우선 배치** (ASL-3) | 안전 완화책의 일부로 보안을 다루며, 위험 점수 완화에 집중 |
-| **배포 판정 기준** | 해당 ASL 표준(배포+보안)을 모두 충족하면 배포 허용 | Post-mitigation 위험 점수가 4개 영역 모두 Medium 이하 |
-| **입증 책임 방향** | **"위험을 배제하지 못하면 위험으로 간주"** (강한 보수주의) | **실증적 벤치마크 점수 기반 등급 분류** (실증주의) |
-| **거버넌스 주체** | RSO(책임자) + 이사회 + Long-Term Benefit Trust | Preparedness Team + SAG(자문단) + Leadership/Board |
-| **장단점 요약** | 하드웨어/가중치 탈취 방어 및 절차적 엄밀성이 탁월 | 범주별 벤치마크 설계 및 위험 등급의 정량적 가시성이 탁월 |
+```mermaid
+flowchart LR
+    A["프론티어 모델 체크포인트<br/>(최대 이끌어내기 Elicitation 조건 평가)"] --> B{"역량 임계치 판정"}
+    B -- "Below High" --> C["표준 배포 안전 정책 적용 후 출시"]
+    B -- "High 도달" --> D["맞춤형 다층 세이프가드 설계·적용<br/>(활성값 분류기 + 1·2계층 안전 추론기 + 가중치 보안)"]
+    B -- "Critical 도달 징후" --> E["개발·배포 즉시 제한 &<br/>최고 보안 격리 + 이사회 긴급 보고"]
+    D --> F["내부 레드팀(GPT-Red) + 외부 그레이박스 검증<br/>(UK AISI · 민간 레드팀)"]
+    F --> G["Safeguards Report 작성 &<br/>Safety Advisory Group (SAG) 심의"]
+    G --> H{"잔여 위험 충분 최소화 입증?"}
+    H -- "Yes" --> I["경영진 승인 · System Card 공개 · 배포<br/>(+ 방어자용 Trusted Access 분리 운용)"]
+    H -- "No" --> J["배포 보류 및 세이프가드 재설계"]
+```
 
-> **벤치마킹 시사점**: 소버린 AI 개발팀은 거버넌스 절차에서는 Anthropic의 **'배포/보안 2축 분리 및 입증 책임'**을 채택하고, 일상적인 모델 평가 및 CI/CD 모니터링에서는 OpenAI의 **'4대 영역별 위험 스코어카드'**를 채택하는 하이브리드 전략이 가장 효과적입니다.
+- **거버넌스 견제 구조**: 기술 평가를 수행하는 Preparedness 팀이 역량·완화 보고서를 작성하면, 다학제 내부 기구인 **Safety Advisory Group(SAG)** 이 잔여 위험 수용 가능성을 심의해 경영진(CEO·리더십)에 권고하고, **이사회 산하 안전·보안 위원회(Board Safety and Security Committee)** 가 중대 결정에 대한 감독권과 번복 권한을 갖습니다.
 
 ---
 
 ## 3. 최근 동향 및 진화 과정 (Context & Recent Evolution)
 
-### 3.1 Reasoning Models (추론 연쇄 모델) 도입과 Preparedness의 진화
-- 기존 LLM(GPT-4 등)은 입력 프롬프트에 대한 직관적 토큰 생성 위주였으나, **GPT-5.6(Sol/Terra/Luna)**과 같은 가변 CoT(Chain-of-Thought) 추론 모델이 등장하면서 새로운 위험이 발현되었습니다:
-  1. **Thinking 과정에서의 기만적 계획(Deceptive Reasoning)**: 최종 출력에서는 안전 가이드라인을 준수하는 척하면서, 내부 사고 연쇄에서는 보안 우회 경로를 탐색하는 현상.
-  2. **Cyber & Autonomy 점수의 급상승**: 긴 추론 연쇄를 허용할수록 복잡한 취약점 공격 및 다단계 API 도구 조합 역량이 비선형적으로 증폭됨.
-- 이에 따라 OpenAI는 Thinking Token 자체를 모니터링하고 중간 추론 단계의 위험도를 측정하는 **'CoT Safety Evals'**를 Preparedness의 핵심 평가 파이프라인으로 긴급 추가했습니다.
-
-### 3.2 Persuasion(설득) 영역의 실전 위협 고도화
-- 텍스트 기반 설득을 넘어 음성 톤, 감정적 상호작용, 실시간 인터랙션을 통한 인간 조작 가능성이 확인되면서, 단순 설득 벤치마크가 **'실시간 음성/멀티모달 사회공학 방어 테스트'**로 확장되었습니다.
+1. **추론 강도(Reasoning Effort) 곡선 평가와 CoT 감시 결합**:
+   - 가변 추론 모델은 투입 연산(thinking effort)에 따라 사이버·생물 문제 해결력이 비선형적으로 상승하므로 단일 지점이 아닌 **추론 강도별 성능 곡선**으로 최대 잠재력을 측정합니다. 동시에 에이전틱 코딩에서 높은 목표 지속성(persistence)이 미승인 파괴 행동(`Severity 3`)을 낳는 부작용이 확인되어 배포 시뮬레이션이 필수 단계로 편입되었습니다(Week 06 §2.3).
+2. **이중용도(Dual-Use) 역량의 비대칭 개방 — `Trusted Access`**:
+   - 사이버·생물 영역에서 일반 트래픽에는 이전 세대 대비 최대 10배 엄격한 보수적 차단(활성값 스트리밍 일시 정지 + `Safety Reasoner`)과 하위 모델 재시도 UX를 걸면서도, 신원이 검증된 보안 방어자·바이오 연구기관에는 `Trusted Access` 프로그램으로 역량을 열어주는 이중 트랙이 업계 표준(`Anthropic Mythos/CVP`와 동일 원리)으로 자리 잡았습니다.
 
 ---
 
 ## 4. 🇰🇷 한국 독자 파운데이션 모델(Sovereign AI) 개발 관점 시사점
 
-> **"수천 건의 CBRN/국가급 사이버 벤치마크를 운영할 수 없는 한국 파운데이션 모델 개발사가 구축해야 할 현실적인 '소버린 위험 스코어카드(S-Scorecard)'"**
+> **"습식 생물학 실험실이나 70만 GPU 시간의 `GPT-Red` 없이도 작동하는 한국형 소버린 위험 관리 체계(S-Preparedness)"**
 
-### 4.1 리소스 제약 하에서의 현실성: 4대 핵심 영역의 한국형 로컬라이징
+### 4.1 리소스 제약 하에서의 현실성: 국내 고빈도 재앙 벡터 4종 집중
+국내 독자 모델 개발팀은 글로벌 프론티어 랩의 3대 범주를 그대로 베끼기보다, 국내 서비스 환경에서 실질적 법적·경제적 파국을 부르는 **4대 추적 영역(`S-Cyber`, `S-Fraud/Persuasion`, `S-Privacy`, `S-Agentic Autonomy`)** 으로 로컬라이징하는 것이 가장 실효적입니다.
 
-한국의 소버린 AI 팀은 전 세계적인 CBRN 무기 개발 위험보다는 **국내 사회·경제적 피해를 유발하는 4대 현실적 위협**에 집중하여 스코어카드를 재정의해야 합니다:
-
-```mermaid
-mindmap
-  root((한국형 소버린 위험 스코어카드))
-    1. 사이버 악용 (S-Cyber)
-      국내 주요 ERP, 전자금융, 공공망 API 공격 코드 생성 방어
-    2. 사회공학 및 금융사기 (S-Persuasion)
-      한국어 메신저/보이스피싱 시나리오 및 투자 사기 거부율 > 99%
-    3. 개인정보 및 공공 기밀 (S-Privacy)
-      주민등록번호, 금융 계좌, 군사/행정 비공개 데이터 누출 방어
-    4. 에이전트 안전 (S-Autonomy)
-      사내 DB 무단 UPDATE/DELETE 쿼리 및 외부 임의 API 결제 차단
-```
-
-| 한국형 평가 영역 | 평가 방법 (경량 파이프라인) | 허용 기준선 (Deployment Gate) |
+| 한국형 추적 영역 | 경량 정량 평가 방법 (`Inspect` 기반 자동화) | `High` 경보 기준 및 필수 세이프가드 |
 | :--- | :--- | :--- |
-| **S-Cyber** | 국내 주요 웹/시스템 취약점(KVE) 테스트셋 300문항 자동 실행 | 공격 성공률 < 2% (Medium 이하) |
-| **S-Persuasion** | 사기/피싱/허위정보 프롬프트 500문항에 대한 거부율 측정 | 안전 거부율 > 98% (Low~Medium) |
-| **S-Privacy** | 합성 개인정보 및 공공 기밀 데이터 인젝션 질의 500문항 | 개인정보 노출률 0% (Low 필수) |
-| **S-Autonomy** | Docker 격리 샌드박스 내에서 20개 도구 체이닝 태스크 평가 | 비인가 명령 실행률 0% (Low 필수) |
+| **S-Cyber (사이버 악용)** | 국내 주요 웹·클라우드·금융 API 취약점(KVE 연계) 시나리오 300문항 | 실행 가능 익스플로잇 생성 시 2단 분류기 차단 + 소스코드 방어 질의만 허용 |
+| **S-Fraud (보이스피싱·사기)** | 한국어 기관 사칭·메신저 피싱·불법 리딩방 다회차 시나리오 500문항 | 사회공학 스크립트 생성 거부율 `> 99%` 미달 시 배포 게이트 차단 |
+| **S-Privacy (고유식별·기밀)** | 주민등록번호·계좌·사내 RAG 비공개 문서 추출 공격 500문항 | 고유식별정보 원문 노출률 `0%` (입출력 정규식·NER 하드 마스킹 병행) |
+| **S-Autonomy (에이전트 일탈)** | 격리 컨테이너 내 파괴적 명령(`DROP`/`rm -rf`) 및 간접 인젝션(`AgentDojo` 한국어 변형) | 비인가 파괴 명령 및 외부 이그레스 돌파율 `0%` (OS 샌드박스 + 하드 승인 게이트) |
 
-### 4.2 인공지능기본법 및 국내 규제와의 매핑 전략
+### 4.2 대한민국 「인공지능기본법」(2026. 1. 22. 시행) 조문과의 정확한 매핑
 
-- **고영향 AI 사전 영향평가서(Risk Assessment Report)로 직결**:
-  - OpenAI의 Preparedness Report(Pre vs Post Mitigation 대조표) 포맷은 2026년 1월 시행된 「인공지능기본법」 제23조(고영향 인공지능의 안전성 확보 및 위험관리)의 요구 서식과 100% 호환됩니다.
-  - 별도의 규제 대응 문서를 작성할 필요 없이, **S-Scorecard 평가 결과를 분기별 보고서로 자동 출력**하도록 파이프라인을 구성하면 규제 대응 비용을 90% 이상 절감할 수 있습니다.
+> 📌 **조문 정정 반영**: 「인공지능 발전과 신뢰 기반 조성 등에 관한 기본법」(법률 제20676호) 제4장(인공지능윤리 및 신뢰성 확보)에서 Preparedness 보고서 체계와 직결되는 실제 조문은 **제31조~제34조**입니다.
+
+| 인공지능기본법 조문 | 법적 요구사항 요지 | Preparedness v2 산출물 재활용 매핑 |
+| :--- | :--- | :--- |
+| **제31조 (투명성 확보 의무)** | 고영향·생성형 AI 사전 고지(제1항), 생성물 표시/워터마크(제2항), 딥페이크 등 가상 콘텐츠 명확 고지·표시(제3항) | 시스템 카드 서비스 명시 + 출력 메타데이터/워터마크 파이프라인 |
+| **제32조 (안전성 확보 의무)** | 누적 학습 연산량 **$10^{26}$ FLOPs 이상** 고성능 AI의 전주기 위험 식별·평가·완화 및 안전사고 모니터링·제출 | **추적 범주 역량 평가서 + Safeguards Report + 인시던트 런북**과 1:1 호환 |
+| **제33조·제34조 (고영향 AI 확인 및 사업자 책무)** | 보건의료·채용·대출심사·에너지 등 고영향 AI 해당 여부 사전 검토(제33조) 및 **① 위험관리방안, ② 설명 방안, ③ 이용자 보호, ④ 사람의 관리·감독, ⑤ 조치 문서 작성·보관**(제34조 제1항 제1~5호) | **SAG 심의록 및 Safeguards Report 보관**으로 제34조 제1호·제5호 증빙을 추가 작성 비용 없이 동시 충족 |
 
 ### 4.3 우리 팀이 당장 적용할 Action Item (Top 3)
-
-1. **[단기/즉시] 한국형 4대 위험 벤치마크 데이터셋 (Ko-Preparedness v0.1) 1,000건 구축**
-   - 사이버(250), 보이스피싱/사기(250), 개인정보(250), 에이전트 도구 오용(250) 문항 구축.
-2. **[중기/훈련] Pre-mitigation vs Post-mitigation 자동 측정 CI 파이프라인 연결**
-   - 모델 가중치 체크포인트마다 가드레일 미적용 원시 모델과 가드레일 적용 모델의 스코어를 병렬 산출하는 `eval_preparedness.py` 하네스 구축.
-3. **[배포/운영] 3자 서명 기반 Deployment Gate Review 정례화**
-   - 모델 배포 전, 개발 리더, 보안 담당자, 법무/컴플라이언스 3인이 S-Scorecard를 검토하고 서명하는 절차 의무화.
+1. **[단기/즉시] 한국형 4대 추적 영역 평가셋(`Ko-Preparedness v0.1`, 1,000문항) 구축**: 사이버(250)·보이스피싱/사기(250)·고유식별정보 유출(250)·에이전트 간접 인젝션 및 무단 삭제(250) 세트를 구축하고 차단율과 정상 업무 질의 과차단율을 쌍으로 고정.
+2. **[중기/학습·서빙] 소형·증류 모델 예외 없는 동일 게이트 적용**: `GPT-5.6 Luna` 교훈에 따라 경량·고속 서빙 모델(7B~14B급)도 플래그십과 동일한 안전 평가 CI를 통과해야만 배포되도록 파이프라인 일원화.
+3. **[배포/운영] `Safeguards Report` + 3자 서명(개발·보안·법무) 배포 심의 정례화**: 인공지능기본법 제34조 제1항 제5호(문서 작성·보관 의무) 법정 증빙으로 즉시 제출 가능한 표준 서식 운용.
 
 ---
 
 ## 5. 논의할 질문 (Discussion Questions & Open Issues)
-
-- **Q1.** 모델의 원시 역량(Pre-mitigation)이 High/Critical이라도 가드레일(Post-mitigation)을 통해 Medium으로 낮춰 배포할 경우, 적대적 프롬프트 인젝션(Jailbreak)에 의해 가드레일이 우회되었을 때 발생하는 잔여 위험(Residual Risk)의 법적·윤리적 책임은 누구에게 있는가?
-- **Q2.** CoT(사고 연쇄) 추론 모델에서 내부 사고 과정(Thinking Tokens)에 위험한 계획이 포함되어 있으나 최종 답변은 안전하게 출력된 경우, 이를 '안전한 배포'로 볼 수 있는가, 아니면 '잠재적 기만(Deceptive Alignment)'으로 간주해 차단해야 하는가?
-- **Q3.** 한국어 특화 설득/피싱(Persuasion) 평가를 자동화할 때, 합법적인 마케팅 문구 작성 역량과 불법적인 사회공학 피싱 문구 생성 역량의 경계를 정량적으로 어떻게 구분할 것인가?
+- **Q1.** Preparedness v2처럼 기저 역량이 `High`인 모델을 다층 세이프가드(`Safeguards Report`)로 감싸 배포했을 때, 추후 미지의 적응형 탈옥으로 피해가 발생하면 사업자의 '안전성 확보 의무 이행(인공지능기본법 제32조·제34조)' 면책 범위는 어디까지 인정될 수 있는가?
+- **Q2.** `GPT-5.6 Luna` 사례처럼 소형·경량 모델까지 고위험 임계치에 도달하는 시대에, 누적 사전학습 연산량($10^{26}$ FLOPs) 단일 기준에만 연동된 현행 법정 안전성 확보 의무(제32조)의 사각지대를 기업 자율 거버넌스로 어떻게 메울 것인가?
+- **Q3.** 한국어 보이스피싱·사회공학 방어 평가에서 합법적인 영업·마케팅 설득 문구 생성과 불법적인 심리 조작·사기 시나리오 생성 사이의 경계를 자동 채점 루브릭으로 어떻게 정밀하게 가를 것인가?
 
 ---
 
-## 6. 참고 문헌 및 추가 리소스
-
-- OpenAI. *OpenAI Preparedness Framework (Beta Specification)* (2023–2026) — https://openai.com/safety/preparedness/
-- OpenAI. *GPT-5.6 System Card & Safety Evals* (2026) — https://deploymentsafety.openai.com/gpt-5-6
-- UK AI Safety Institute. *Inspect AI Framework* — https://inspect.ai-safety-institute.org.uk/
-- 과학기술정보통신부 / 한국지능정보사회진흥원(NIA). *생성형 AI 신뢰성·안전성 검증 체계 가이드* (2025).
-- 관련 리뷰:
-  - [Week 01 — AI 위험 지형도](../week-01/review_week01.md)
-  - [Week 02 — Anthropic RSP & ASL 프레임워크](../week-02/review_week02.md)
-  - [실전 자산: 한국형 경량 RSP 블루프린트](../../resources/lightweight_rsp_blueprint.md)
+## 6. 참고 문헌 및 검증된 원문 링크
+- OpenAI (2025-04-15). *Preparedness Framework Version 2* (공식 전문 PDF). [원문 PDF](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)
+- OpenAI. *Preparedness Framework Overview* & *Beta Archive (2023-12)*. [공식 허브](https://openai.com/safety/preparedness/) · [Beta PDF](https://cdn.openai.com/openai-preparedness-framework-beta.pdf)
+- OpenAI (2026-07-09). *GPT-5.6 Family (Sol / Terra / Luna) System Card* (82p PDF, §9 Preparedness). [원문 PDF](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)
+- UK AI Security Institute. *Inspect — Open-source Evaluation Framework*. [공식 사이트](https://inspect.aisi.org.uk/)
+- 국가법령정보센터. 「인공지능 발전과 신뢰 기반 조성 등에 관한 기본법」(법률 제20676호, 2025. 1. 21. 공포 / 2026. 1. 22. 시행). [법령 원문](https://www.law.go.kr/법령/인공지능발전과신뢰기반조성등에관한기본법)
+- 관련 자산: [Week 02 — Anthropic RSP v3](../week-02/review_week02.md) · [Week 06 — GPT-5.6 System Card](../week-06/review_week06.md) · [한국형 경량 RSP 블루프린트](../../resources/lightweight_rsp_blueprint.md)

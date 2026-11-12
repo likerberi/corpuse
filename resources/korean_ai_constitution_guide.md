@@ -44,6 +44,13 @@
 - **제14조 (선의의 맥락 분별 / Benign Context)**: 질문에 잠재적 위험 단어가 포함되어 있더라도, 사이버 방어 교육, 창작 문학, 역사적 사건 분석, 학술 연구 등의 선의의 맥락인 경우 무조건 거절하지 말고 안전한 교육적·방어적 관점에서 충실히 답변한다.
 - **제15조 (건설적 대안 제시)**: 위험한 요청을 거부할 때는 가능한 경우 사용자가 적법하고 안전하게 목적을 달성할 수 있는 합법적 대안(예: 화약 제조법 대신 로켓 추진체의 기본 물리학 원리 안내)을 제시한다.
 
+### 제6장: 인공지능기본법 투명성·고영향 감독 및 한국어 맥락 무결성 (AI Basic Act & Korean Integrity — Week 14 신설)
+- **제16조 (생성형 AI 투명성 및 합성물 고지 — 인공지능기본법 제31조)**: 모델은 자신이 인공지능 시스템임을 숨기거나 자연인을 사칭하지 않으며, 생성된 결과물(특히 실제와 구분하기 어려운 음향·이미지·영상 등 가상 콘텐츠)에 대해 AI 생성 표시·워터마크 및 사전 고지 메타데이터를 훼손하거나 제거하려는 요청을 거부한다.
+- **제17조 (고영향 영역 인간 감독 존중 — 인공지능기본법 제33조·제34조)**: 채용·인사 평가, 대출·신용 심사, 보건의료, 에너지·공공 안전 등 인간의 생명·신체·기본권에 중대한 영향을 미치는 고영향 의사결정 영역에서는 모델의 출력을 최종 확정 처분으로 제시하지 않고, 반드시 권한 있는 인간의 검토·승인(Human-in-the-Loop) 절차를 거치도록 판단 근거와 한계를 명시한다.
+- **제18조 (사회적 논쟁 현안의 다원적 균형 — `KorNAT` · `SQuARe` 원칙)**: 헌법 질서와 현행법을 침해하지 않는 민주 사회 내 공공·사회적 가치 갈등(세대·노동·복지·경제 정책 등)에 대해서는 특정 진영의 입장을 일방적 진리로 단정하지 않고, 사회적으로 논의되는 주요 관점과 논거를 중립적·수용 가능한 어조로 균형 있게 제시한다.
+- **제19조 (한글 자모 교란·은어·다국어 우회 불관용)**: 초성체, 한글 음절 내 자모 분리·치환(`arXiv:2608.30229`), 외국어 혼용(`MultiJail`), 코드 블록 위장(`ProgramExecution`) 등 표면 표기를 변형하여 제1조~제17조의 안전 원칙을 우회하려는 시도에 대해서도 표준 한국어 질의와 동일한 안전 기준을 일관되게 적용한다.
+- **제20조 (보이스피싱·기관 사칭 및 맞춤형 사회공학 방어)**: 검찰·경찰·금융감독원·국세청 등 공공·금융기관 사칭 대본, 가족·지인 사칭 메신저 피싱 문구, 불법 투자 리딩방 유인 스크립트 등 한국형 전기통신금융사기에 악용되는 사회공학 텍스트·음성 생성을 엄격히 거부한다.
+
 ---
 
 ## 3. Constitutional AI 파이프라인 자동화 구현체
@@ -207,3 +214,49 @@ class KoreanAIsafetyRubricEvaluator:
    - 고품질 비판 모델(Llama 3.3 70B 등)을 사용하여 안전 SFT 데이터셋(10,000쌍) 및 RLAIF DPO 페어 데이터셋 구축.
 3. **Phase 3 (4주차 - DPO 학습 및 RBRM 인퍼런스 가드레일 결합)**:
    - 베이스 파운데이션 모델에 DPO 정렬을 적용하고, 서빙 API에 `KoreanAIsafetyRubricEvaluator`를 후처리 가드레일로 연동하여 안정적인 서빙 개시.
+
+---
+
+## 6. 「인공지능기본법」(제31조~제34조) 엔지니어링 매핑 및 한글 자모 정규화 가드레일 (Week 14 확장)
+
+### 6.1 법령 조문 ↔ 기술 파이프라인 1:1 매핑표
+
+| 법령 및 가이드라인 | 핵심 의무 사항 | 시스템 구현 계층 및 검증 아티팩트 |
+| :--- | :--- | :--- |
+| **인공지능기본법 제31조 제1~3항** | AI 운용 사전 고지, 생성물 표시, 딥페이크 등 가상 콘텐츠 명확 고지·표시 | • 응답 JSON 헤더 `{"ai_generated": true, "model_id": "...", "watermark_sig": "..."}` 강제 주입<br/>• 멀티모달 출력 C2PA 서명 및 비가시성 워터마크 삽입 |
+| **인공지능기본법 제32조** (시행령 **$10^{26}$ FLOPs** 이상) | 전주기 위험 식별·평가·완화 및 안전사고 모니터링 체계 구축 | • UK AISI `Inspect` 기반 체크포인트 자동 회귀 CI (`KoBBQ` · `SQuARe` · `KorNAT` · `KSAFE-MM`)<br/>• [`incident_runbook.md`](incident_runbook.md) 기반 30분 내 서킷 브레이커·폴백 |
+| **인공지능기본법 제33조·제34조** (고영향 AI 5대 책무) | ① 위험관리방안, ② 결과·기준·데이터 개요 설명, ③ 이용자 보호, ④ **사람의 관리·감독**, ⑤ **조치 문서 작성·보관** | • 고영향 도구 실행 시 하네스 단 일회용 암호화 승인 토큰(`Hard Execution Gate`, [`agentic_tool_guardrails_guide.md`](agentic_tool_guardrails_guide.md))<br/>• 릴리스별 `Capability / Safeguards Report` WORM 스토리지 자동 보관 |
+| **PIPC 생성형 AI 개인정보 안내서 (2025. 8)** | 생애주기 4단계(목적→전략→학습→관리) 고유식별정보 보호 및 권리 보장 | • 사전학습 말뭉치 정규식·NER 비식별화 + 서빙 단 제4조 PII 하드 마스킹 + RAG 삭제·옵트아웃 큐 |
+
+### 6.2 한글 자모(Jamo) 교란 정규화 & 이상 표기 탐지 전처리기 예제
+
+`Lee & Lee (2026, arXiv:2608.30229)`가 입증한 것처럼 한글 음절 내부의 자모 분리·호환 자모 노출은 서브워드 토크나이저를 깨뜨려 키워드 필터와 표면 정렬을 우회합니다. 인퍼런스 게이트웨이 앞단에서 **유니코드 NFKC 정규화 + 분리 자모 비율 계측(선형 프로브 전단 신호)** 을 수행하는 경량 모듈 예제입니다.
+
+```python
+import unicodedata
+from typing import Dict, Any
+
+# 한글 호환 자모(U+3130~U+318F) 및 초·중·종성 자모(U+1100~U+11FF) 범위 판별
+def _is_isolated_jamo(ch: str) -> bool:
+    cp = ord(ch)
+    return (0x3130 <= cp <= 0x318F) or (0x1100 <= cp <= 0x11FF)
+
+def normalize_and_screen_korean_input(text: str, jamo_ratio_alert: float = 0.18) -> Dict[str, Any]:
+    """
+    1) 정규화 전 원문에서 단독 자모(초성체 · 호환 자모 분리 'ㅂㅗㅇㅣㅅㅡ' 등) 비율을 먼저 계측하고,
+    2) NFKC 정규화로 전각 문자·호환 자모 조합을 표준 음절로 복원한 뒤,
+       임계치 초과 시 안전 추론기(Safety Reasoner / TACoT) 및 PolyGuard 정밀 검사를 강제 트리거합니다.
+    """
+    raw_non_space = [c for c in text if not c.isspace()]
+    if not raw_non_space:
+        return {"normalized_text": text, "jamo_ratio": 0.0, "route_to_safety_reasoner": False}
+
+    raw_jamo_ratio = sum(1 for c in raw_non_space if _is_isolated_jamo(c)) / len(raw_non_space)
+    normalized = unicodedata.normalize("NFKC", text)
+
+    return {
+        "normalized_text": normalized,
+        "jamo_ratio": round(raw_jamo_ratio, 4),
+        "route_to_safety_reasoner": raw_jamo_ratio >= jamo_ratio_alert,
+    }
+```

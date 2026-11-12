@@ -4,17 +4,21 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 
 ---
 
-## 1. BlueDot Impact (AI Safety Fundamentals)
+## 1. BlueDot Impact & Foundational Risk Taxonomies (Week 01)
 - **AI Safety Fundamentals (Alignment Course)**: [https://bluedot.org/courses/alignment](https://bluedot.org/courses/alignment)
 - **AI Safety Fundamentals (Governance Course)**: [https://bluedot.org/courses/governance](https://bluedot.org/courses/governance)
 - **Course Curriculum & Readings**: [https://bluedot.org/courses](https://bluedot.org/courses)
+- **An Overview of Catastrophic AI Risks** (Hendrycks, Mazeika, Woodside, CAIS, 2023): [arXiv:2306.12001](https://arxiv.org/abs/2306.12001) — 4대 재앙적 위험 원천 및 스위스 치즈 다층 방어
+- **International AI Safety Report** (Bengio 외 100인, 30개국·UN·EU·OECD 위임, 2025-01): [arXiv:2501.17805](https://arxiv.org/abs/2501.17805) — 범용 AI 위험 3대 국제 표준 분류(악의적 사용·오작동·시스템적 위험)
 
 ---
 
 ## 2. Anthropic
 ### Responsible Scaling Policy (RSP)
-- **Anthropic's Responsible Scaling Policy (Version 1 & Updates)**: [https://www.anthropic.com/news/anthropics-responsible-scaling-policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy)
-- **RSP Version 2 / Commitments**: [https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy)
+- **Responsible Scaling Policy Hub (현행 전문)**: [https://www.anthropic.com/responsible-scaling-policy](https://www.anthropic.com/responsible-scaling-policy)
+- **RSP Version 3 (2026-02-24 발효, 현행)**: [https://www.anthropic.com/news/responsible-scaling-policy-v3](https://www.anthropic.com/news/responsible-scaling-policy-v3) — 자사 단독 공약과 산업계 권고 분리, `CB-1`/`CB-2` 및 AI R&D 2계층 세분화, 공개 Risk Report 및 LTBT 외부 감사권
+- **Anthropic's Responsible Scaling Policy (Version 1, 2023-09)**: [https://www.anthropic.com/news/anthropics-responsible-scaling-policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy)
+- **RSP Version 2 (2024-10 개정)**: [https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy)
 
 ### System Cards & Model Evaluations
 - **System Card: Claude Opus 5 (2026-07-24, 193p)**: [PDF](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf) — RSP 평가(CB-1/CB-2/AI R&D), Cyber, Safeguards, Agentic safety, Alignment assessment
@@ -39,8 +43,9 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
 
 ## 3. OpenAI
 ### Preparedness Framework & Governance
-- **OpenAI Preparedness Framework**: [https://openai.com/safety/preparedness/](https://openai.com/safety/preparedness/)
-- **Preparedness Framework (Full Spec PDF)**: [https://cdn.openai.com/openai-preparedness-framework-beta.pdf](https://cdn.openai.com/openai-preparedness-framework-beta.pdf)
+- **Preparedness Framework Version 2 (2025-04-15, 현행 전문 PDF)**: [PDF](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf) — 3대 추적 범주(`Bio/Chem`, `Cyber`, `AI Self-Improvement`) + 5대 연구 범주, `High`/`Critical` 임계치 및 세이프가드 충분성 입증
+- **OpenAI Preparedness Framework Overview**: [https://openai.com/safety/preparedness/](https://openai.com/safety/preparedness/)
+- **Preparedness Framework Beta Archive (2023-12 PDF)**: [https://cdn.openai.com/openai-preparedness-framework-beta.pdf](https://cdn.openai.com/openai-preparedness-framework-beta.pdf)
 
 ### System Cards & Safety Evals
 - **GPT-5.6 Family (Sol / Terra / Luna) System Card**: [Deployment Safety Hub](https://deploymentsafety.openai.com/gpt-5-6) · [PDF (2026-07-09)](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)
@@ -161,6 +166,19 @@ AI 안전 분야 3대 프론티어 연구소(Anthropic, OpenAI, Google DeepMind)
   - **Trustworthy agents in practice** (Anthropic Alignment, 2026-04-09): [원문](https://www.anthropic.com/research/trustworthy-agents) — 능력(Capability)·정렬(Alignment)·통제(Control)·투명성(Transparency) 4대 축과 배포 전·후 에이전트 거버넌스 프레임워크
   - **How we contain Claude across products** (Anthropic Alignment, 2026-05-25): [원문](https://www.anthropic.com/research/how-we-contain-claude) — `claude.ai`(비영속 컨테이너)·`Claude Code`(OS 샌드박스)·`Claude Cowork`(6중 격리 로컬 VM & `read-write-no-delete` 마운트) 3대 격리 아키텍처, `~93%` 승인 피로 실증, `Auto Mode` 분류기(`~83%` 과잉 행동 차단 / `~0.4%` 오탐), 실제 보안 실패 4건(폴더 신뢰 전 훅 실행, 피싱 프롬프트 `~/.aws/credentials` `24/25` 탈취 및 슬랙 감염, 허용 도메인 `api.anthropic.com` 악용 유출과 방어용 MITM 프록시, VM EDR 사각지대와 Pull 기반 `OTLP`) 공개
 - 시스템 카드 내 해당 절: Claude Opus 5 §5.1~5.2 (Computer Use · Gray Swan IPI $k=15$ · Adaptive IPI + `Auto Mode`) · §6.1.3 (서브에이전트 미검증 주장 전달) · §6.4.2 (`[Transcript 6.4.2.A]` 비공개 CoT 자기합리화 및 `120`개 잡 무단 삭제) · §8.11~8.13 (`BrowseComp 93.6%`, `OSWorld 2.0 70.57%`, `MCP-Atlas 85.8%`) / GPT-5.6 §3.3 (파괴적 행동 회피+정확성 `0.44/0.37/0.32`) · §3.4 (고위험 액션 확인 요청) · §4.2 (Connectors & Indirect PI) · §7.2 (`VM 5,6,7` 무단 삭제 및 `access_tokens.json` 복사) / Gemini 3.7 Flash FSF Report (`GRB 27%/47%` 및 `11`개 Linux 상황 인식 챌린지 `6/11` 통과)
+
+### 주제별: 한국형 AI Safety 벤치마크, 교차언어/자모 보안 & 국내 법제도 (Week 14)
+- **SQuARe: A Large-Scale Dataset of Sensitive Questions and Acceptable Responses** (Lee 외, NAVER AI Lab · KAIST · SNU, ACL 2023): [arXiv:2305.17696](https://arxiv.org/abs/2305.17696) — 실제 뉴스 헤드라인 기반 `49k` 민감 질문 및 `42k` 수용 가능 / `46k` 비수용 응답 데이터셋
+- **KoSBi: A Dataset for Mitigating Social Bias Risks Towards Safer LLM Application** (Lee 외, NAVER AI Lab, ACL 2023): [arXiv:2305.17701](https://arxiv.org/abs/2305.17701) — `15`개 범주·`72`개 인구통계 집단 `34k` 문맥-문장 쌍 (생성 편향 평균 `-16.47%p` 완화)
+- **KoBBQ: Korean Bias Benchmark for Question Answering** (Jin 외, KAIST · NAVER AI Lab, TACL 2024): [arXiv:2307.16778](https://arxiv.org/abs/2307.16778) — 한국 문화 적응 3분류 + 고유 편향 4종 추가, `12`개 범주·`268`개 템플릿·`76,048` 샘플
+- **HAE-RAE Bench** (Son 외, LREC-COLING 2024): [arXiv:2309.02706](https://arxiv.org/abs/2309.02706) & **CLIcK: Cultural and Linguistic Intelligence in Korean** (Kim 외, LREC-COLING 2024): [arXiv:2403.06412](https://arxiv.org/abs/2403.06412) — 한국 시험·교과서 기반 문화·언어 11개 범주 `1,995` QA 쌍
+- **KorNAT: LLM Alignment Benchmark for Korean Social Values and Common Knowledge** (Lee 외, KAIST · SelectStar · NAVER AI Lab, ACL 2024 Findings): [arXiv:2402.13605](https://arxiv.org/abs/2402.13605) — 한국인 `6,174`명 설문(문항당 평균 `219`명) 사회적 가치 `4K` + 공통 지식 `6K` (`10K` 문항)
+- **Multilingual Jailbreak Challenges in Large Language Models (`MultiJail`)** (Deng 외, ICLR 2024): [arXiv:2310.06474](https://arxiv.org/abs/2310.06474) — 한국어 포함 다국어 탈옥 시 유해 출력률(`ChatGPT 80.92%`, `GPT-4 40.71%`) 및 `Self-Defense` 파인튜닝
+- **WildGuard** (Han 외, NeurIPS 2024): [arXiv:2406.18495](https://arxiv.org/abs/2406.18495) & **PolyGuard: A Multilingual Safety Moderation Tool for 17 Languages** (Kumar 외, 2025): [arXiv:2504.04377](https://arxiv.org/abs/2504.04377) — 한국어 포함 `17`개 언어 `1.91M` 학습 코퍼스·`29K` 평가셋 다국어 안전 분류기
+- **KSAFE-MM: A Multimodal Safety Benchmark via Localized Contextualization for Korean Cultural Risks** (Kim 외, 2026-05): [arXiv:2605.28013](https://arxiv.org/abs/2605.28013) — 한국 맥락 멀티모달 안전 평가 (`ProgramExecution` 결합 시 최대 `74.2%` ASR 및 안전–과차단 트레이드오프 실증)
+- **Quantifying and Mitigating Korean Jamo-Level Typographical Vulnerabilities in Large Language Models** (Lee & Lee, 2026-08): [arXiv:2608.30229](https://arxiv.org/abs/2608.30229) — 한글 음절 내부 자모 교란 5종의 토크나이저 파편화 규명 및 내부 표상 선형 프로브 + `TACoT` 완화
+- **대한민국 국가법령정보센터 — 「인공지능 발전과 신뢰 기반 조성 등에 관한 기본법」(법률 제20676호, 2026. 1. 22. 시행)**: [법령 원문](https://www.law.go.kr/법령/인공지능발전과신뢰기반조성등에관한기본법) — 제31조(투명성·생성물·딥페이크 표시), 제32조($10^{26}$ FLOPs 고성능 AI 안전성), 제33조·제34조(고영향 AI 확인 및 사업자 5대 책무)
+- **개인정보보호위원회 — 생성형 AI 개인정보 처리 안내서 (2025-08)**: [https://www.pipc.go.kr/](https://www.pipc.go.kr/) · **TTA AI 신뢰성 검·인증 (`CAT 2.0`)**: [https://www.tta.or.kr/](https://www.tta.or.kr/)
 
 ---
 

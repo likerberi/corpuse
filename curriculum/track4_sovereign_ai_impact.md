@@ -15,10 +15,11 @@ Track 4에서는 한국을 비롯한 **소버린 AI(Sovereign AI)** 및 독자 �
    - 상세 실전 가이드: [`resources/agentic_tool_guardrails_guide.md`](../resources/agentic_tool_guardrails_guide.md) 및 [Week 13 리뷰](../reviews/week-13/review_week13.md)
 2. **비용 효율적인 경량 안전 파이프라인 (Cost-efficient Safety Pipeline)**:
    - 오픈소스 안전 모델(Llama Guard, NeMo Guardrails, ShieldGemma 등)과 중간 레이어 선형 프로브를 조합한 다중 인퍼런스 방어벽 구축.
-3. **한국어 및 국내 규제 특화 안전성 (Korean Specifics & Compliance)**:
-   - 개인정보보호법, 공공기관 보안성 가이드라인, 금융보안원 AI 가이드라인, 인공지능기본법에 맞춘 프롬프트 필터링 및 비식별화 체계.
-   - 다국어 번역 기반 탈옥(Cross-lingual Jailbreak) 및 한국 역사/정치적 논쟁 이슈에 대한 중립성 보장.
-   - 상세 실전 가이드: [`resources/korean_ai_constitution_guide.md`](../resources/korean_ai_constitution_guide.md)
+3. **한국어 및 국내 규제 특화 안전성 (Korean Specifics & Compliance — Week 14)**:
+   - **한국형 안전·편향·가치 정렬 벤치마크 결합**: 단순 기계번역 셋을 배제하고 `KoBBQ`(`76,048` 샘플)·`SQuARe`(`49k` 민감 질의)·`KoSBi`(`34k` 쌍)·`KorNAT`(`10K` 국가 가치·지식)·`KSAFE-MM`(한국 문화 멀티모달 안전)을 통합 회귀 스위트로 운용하며 차단율과 과차단율을 쌍(pair)으로 계측.
+   - **교차언어·한글 자모(Jamo) 우회 방어**: 다국어 안전 분류기(`PolyGuard`, 17개 언어)와 유니코드 자모 정규화 + 중간 레이어 선형 프로브(`TACoT` 라우팅)를 결합해 초성체·자모 분리·다국어 혼합 탈옥 차단.
+   - **국내 법제 엔지니어링 내재화**: 「인공지능기본법」 제31조(생성물·딥페이크 표시), 제32조($10^{26}$ FLOPs 고성능 AI 안전성), 제33조·제34조(고영향 AI 위험관리·설명·인간 감독·문서 보관 5대 책무), 개인정보보호위원회 생애주기 4단계 안내서(2025. 8), TTA `CAT 2.0` 및 금융보안원 평가 프레임워크 대응.
+   - 상세 실전 가이드: [`resources/korean_ai_constitution_guide.md`](../resources/korean_ai_constitution_guide.md) 및 [Week 14 리뷰](../reviews/week-14/review_week14.md)
 4. **인시던트 대응 및 모델 재조정 런북 (Incident Response & Patching Runbook)**:
    - Claude Fable 5, GPT-5.6 등의 선례와 같이, 배포 후 보안 취약점이 발견되었을 때 서비스 중단 최소화 및 긴급 회수/가드레일 재조정(Post-hoc Patching) 프로세스 구축.
    - 상세 실전 가이드: [`resources/lightweight_rsp_blueprint.md`](../resources/lightweight_rsp_blueprint.md) 및 [`resources/incident_runbook.md`](../resources/incident_runbook.md)

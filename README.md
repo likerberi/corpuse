@@ -69,9 +69,9 @@ flowchart TD
 
 | 주차 | 주제 | 리뷰 일자 | 상태 | 링크 |
 | :---: | :--- | :---: | :---: | :--- |
-| Week 01 | AI Safety 기본 분류 & 위험 지형도 | 2026-08-18 | ✅ 완료 | [review_week01.md](reviews/week-01/review_week01.md) |
-| Week 02 | Anthropic RSP & ASL 프레임워크 | 2026-08-25 | ✅ 완료 | [review_week02.md](reviews/week-02/review_week02.md) |
-| Week 03 | OpenAI Preparedness Framework & 위험 임계치 | 2026-09-01 | ✅ 완료 | [review_week03.md](reviews/week-03/review_week03.md) |
+| Week 01 | AI Safety 기본 분류 & 위험 지형도 (CAIS 4분류 & IASR 3분류) | 2026-08-18 (2026-11-12 보강) | ✅ 완료 | [review_week01.md](reviews/week-01/review_week01.md) |
+| Week 02 | Anthropic RSP (v1→v2→v3) & ASL 프레임워크 | 2026-08-25 (2026-11-12 보강) | ✅ 완료 | [review_week02.md](reviews/week-02/review_week02.md) |
+| Week 03 | OpenAI Preparedness Framework (Beta→v2) & 위험 임계치 | 2026-09-01 (2026-11-12 정정·재작성) | ✅ 완료 | [review_week03.md](reviews/week-03/review_week03.md) |
 | Week 04 | DeepMind Frontier Safety Framework (FSF v3.1) & EU AI Act | 2026-08-31 (2026-10-19 재작성) | ✅ 완료 | [review_week04.md](reviews/week-04/review_week04.md) |
 | Week 05 | Claude Opus 5 System Card & Fable 5 회수–재배포 사례 | 2026-09-07 | ✅ 완료 | [review_week05.md](reviews/week-05/review_week05.md) |
 | Week 06 | OpenAI GPT-5.6 (Sol/Terra/Luna) System Card — 전 모델 Bio/Cyber High & 2계층 세이프가드 | 2026-09-14 (2026-10-19 재작성) | ✅ 완료 | [review_week06.md](reviews/week-06/review_week06.md) |
@@ -82,10 +82,10 @@ flowchart TD
 | Week 11 | Deception, Sleeper Agents & Sandbagging | 2026-10-19 | ✅ 완료 | [review_week11.md](reviews/week-11/review_week11.md) |
 | Week 12 | Mechanistic Interpretability: SAE & 서킷 분석 (Track 3 종합) | 2026-10-26 | ✅ 완료 | [review_week12.md](reviews/week-12/review_week12.md) |
 | Week 13 | 도구 사용(Tool-Use) 모델 및 Autonomous Agent의 안전 (Track 4 개막) | 2026-11-02 | ✅ 완료 | [review_week13.md](reviews/week-13/review_week13.md) |
-| Week 14 | 한국형 AI Safety 벤치마크 & 문화적/법적 가드레일 (인공지능기본법) | 2026-11-09 | ⬜ 예정 | — |
+| Week 14 | 한국형 AI Safety 벤치마크 & 문화적/법적 가드레일 (인공지능기본법) | 2026-11-12 | ✅ 완료 | [review_week14.md](reviews/week-14/review_week14.md) |
 | Week 15~16 | [16주 커리큘럼](curriculum/00_overview.md) 참조 | — | ⬜ 예정 | — |
 
-> ✅ **정정 및 재작성 완료 이력 (2026-10-19)**: 원문 대조에서 오류가 확인되었던 **Week 04(DeepMind FSF v3.1 서술)** 와 **Week 06(OpenAI GPT-5.6 System Card 서술)** 모두 2026-10-19 각각 20페이지·82페이지 공식 원문 PDF를 100% 대조하여 전면 재작성 완료했습니다.
+> ✅ **정정 및 사료 보강 완료 이력 (2026-10-19 · 2026-11-12)**: 2026-10-19 **Week 04(DeepMind FSF v3.1)** 와 **Week 06(OpenAI GPT-5.6 System Card)** 전면 재작성에 이어, 2026-11-12 초기 주차였던 **Week 01(`IASR` `arXiv:2501.17805` 추가 및 약식 서지 교체)**, **Week 02(`RSP v3` 확정 반영 및 `[원문 대조 필요]` 해소)**, **Week 03(`Preparedness Framework v2` 개편 반영 및 인공지능기본법 제31조~제34조 조문 오기 정정)** 을 모두 1차 원문 기준으로 정비 완료했습니다.
 
 ---
 
@@ -154,16 +154,19 @@ corpuse/
 │   ├── week-12/                       # 12주차: Mechanistic Interpretability: SAE & 서킷 분석, Track 3 종합 (완료)
 │   │   ├── README.md
 │   │   └── review_week12.md
-│   └── week-13/                       # 13주차: Tool-Use & Autonomous Agent 안전, Track 4 개막 (완료)
+│   ├── week-13/                       # 13주차: Tool-Use & Autonomous Agent 안전, Track 4 개막 (완료)
+│   │   ├── README.md
+│   │   └── review_week13.md
+│   └── week-14/                       # 14주차: 한국형 AI Safety 벤치마크 & 인공지능기본법 가드레일 (완료)
 │       ├── README.md
-│       └── review_week13.md
+│       └── review_week14.md
 └── resources/
-    ├── reading_list.md                # 앤트로픽/오픈AI/딥마인드/블루닷 공식 링크 모음 (전수 검증 완료)
+    ├── reading_list.md                # 앤트로픽/오픈AI/딥마인드/블루닷/국내 법제 공식 링크 모음 (전수 검증 완료)
     ├── lightweight_rsp_blueprint.md   # 한국형 소버린 AI를 위한 경량 RSP & 비상 거버넌스 블루프린트
     ├── incident_runbook.md            # 회수–재배포 인시던트 런북 (탐지→채점→차단→핫픽스→재배포→공개보고)
     ├── reasoning_cot_safety_guide.md  # 소버린 AI를 위한 CoT 추론 안전 모니터링 & 가드레일 실전 가이드 (+ §6 감시가능성 보존 · §7 화이트박스 프로브/SAE/NLA 결합)
     ├── frontier_eval_playbook.md      # 프론티어 위험 평가 설계 플레이북 (3단 임계치 · 평가 무결성 · 부정행위 검수 · §10 기만·사보타주·샌드배깅 검증)
-    ├── korean_ai_constitution_guide.md# 한국형 인공지능 헌법 20조항 및 RLAIF/RBRM 실전 플레이북
+    ├── korean_ai_constitution_guide.md# 한국형 인공지능 헌법 20조항 완결판, 인공지능기본법 엔지니어링 매핑 및 자모 정규화/RBRM 플레이북
     ├── whitebox_monitoring_guide.md   # 화이트박스 감사 & 활성값 모니터링 실전 가이드 (프로브 운영 · 조향 규칙 · 모델 비교 감사 · 증거 등급)
     ├── agent_containment_guide.md     # 에이전트 봉쇄(Containment) 체크리스트 · 이그레스 역량 심사 · KISA 제로트러스트 매핑 가이드
     └── agentic_tool_guardrails_guide.md # 소버린 AI를 위한 도구 사용(Tool-Use) 및 자율 에이전트 격리·가드레일 실전 가이드 (OS/VM 샌드박스 · MITM 프록시 · CaMeL · 하드 승인 게이트)
